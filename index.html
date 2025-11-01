@@ -5,19 +5,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Battalla TCG</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; background: #f4f4f4; }
-    header, footer { background: #222; color: white; text-align: center; padding: 20px; }
-    nav { background: #333; text-align: center; padding: 10px; }
-    nav a { color: white; margin: 0 15px; text-decoration: none; }
-    section { padding: 20px; max-width: 800px; margin: auto; }
-    ul.socials { list-style: none; padding: 0; display: flex; justify-content: center; gap: 15px; }
-    ul.socials li a { color: white; text-decoration: none; }
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #0e0e0e;
+      color: #fff;
+    }
+    header {
+      background: url('your-background-image.jpg') no-repeat center center;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 4em;
+      color: gold;
+      text-shadow: 2px 2px 8px #000;
+    }
+    header p {
+      font-size: 1.5em;
+      margin-top: 10px;
+    }
+    nav {
+      background-color: #111;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .cta {
+      background-color: #222;
+      padding: 30px;
+      margin: 20px auto;
+      max-width: 600px;
+      border: 2px solid gold;
+    }
+    footer {
+      background-color: #111;
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
+    }
+    .socials a {
+      margin: 0 10px;
+      color: gold;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>Battalla TCG</h1>
-    <p>A new kind of trading card game</p>
+    <h1>BATTALLA!</h1>
+    <p>A new kind of TCG</p>
   </header>
 
   <nav>
@@ -30,21 +82,29 @@
   </nav>
 
   <section>
-    <h2>Starter Decks & Packs</h2>
-    <p>Choose your hero and begin your journey. Starter decks and booster packs available now!</p>
+    <div class="cta">
+      <h2>Starter Decks and Packs</h2>
+      <p>Out Now! Choose your hero and begin your journey.</p>
+    </div>
 
-    <h2>Contact</h2>
-    <p>Email us to learn how you can get cards: <a href="mailto:info@battalla.com">info@battalla.com</a></p>
+    <div class="cta">
+      <h2>Contact Us</h2>
+      <p>Email us to learn how you can get cards: <a href="mailto:info@battalla.com">info@battalla.com</a></p>
+    </div>
+
+    <div class="cta">
+      <h2>Follow Our Socials</h2>
+      <p class="socials">
+        <a href="https://discord.gg/hMYNUJnmy7" target="_blank">Discord</a> |
+        <a href="https://www.instagram.com/battallatcg/" target="_blank">Instagram</a> |
+        <a href="https://www.facebook.com/profile.php?id=100076065249023" target="_blank">Facebook</a>
+      </p>
+    </div>
   </section>
 
   <footer>
-    <p>Follow us:</p>
-    <ul class="socials">
-      <li><a href="https://discord.gg/hMYNUJnmy7" target="_blank">Discord</a></li>
-      <li><a href="https://www.instagram.com/battallatcg/" target="_blank">Instagram</a></li>
-      <li><a href="https://www.facebook.com/profile.php?id=100076065249023" target="_blank">Facebook</a></li>
-    </ul>
-    <p>&copy; 2025 Battalla TCG</p>
+    <p>&copy; 2025 Battalla TCG. All rights reserved.</p>
   </footer>
+
 </body>
 </html>
