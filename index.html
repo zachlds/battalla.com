@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Battalla TCG</title>
+
+  <!-- Font for tagline -->
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
@@ -11,40 +15,52 @@
       background-color: #0e0e0e;
       color: #fff;
     }
+
     header {
       background: url('images/ZeusVChuSmaller_edited_edited.jpg') no-repeat center center;
       background-size: cover;
       height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
       text-align: center;
+      padding-top: 40px;
     }
-    header h1 {
-      font-size: 4em;
-      color: gold;
-      text-shadow: 2px 2px 8px #000;
+
+    .logo-container img {
+      max-width: 600px;
+      width: 90%;
+      height: auto;
+      margin-bottom: 10px;
     }
-    header p {
-      font-size: 1.5em;
-      margin-top: 10px;
+
+    .logo-container p {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 2em;
+      color: white;
+      text-shadow: 1px 1px 4px black;
+      margin-top: 0;
     }
+
     nav {
       background-color: #111;
       padding: 10px;
       text-align: center;
     }
+
     nav a {
       color: #fff;
       margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
     }
+
     section {
       padding: 40px 20px;
       text-align: center;
     }
+
     .cta {
       background-color: #222;
       padding: 30px;
@@ -52,12 +68,14 @@
       max-width: 600px;
       border: 2px solid gold;
     }
+
     footer {
       background-color: #111;
       color: #ccc;
       text-align: center;
       padding: 20px;
     }
+
     .socials a {
       margin: 0 10px;
       color: gold;
@@ -67,19 +85,23 @@
 </head>
 <body>
 
-  <header>
-    <h1>BATTALLA!</h1>
-    <p>A new kind of TCG</p>
-  </header>
-
-  <nav>
+<nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="cards.html">Cards</a>
     <a href="rulings.html">Rulings</a>
     <a href="how-to-play.html">How to Play</a>
     <a href="shop.html">Shop</a>
-  </nav>
+</nav>
+  
+  <header>
+    <div class="logo-container">
+      <img src="images/battalla-logolarge.png" alt="Battalla Logo" />
+      <p>A new kind of TCG</p>
+    </div>
+  </header>
+
+
 
   <section>
     <div class="cta">
@@ -89,7 +111,7 @@
 
     <div class="cta">
       <h2>Contact Us</h2>
-      <p>Email us to learn how you can get cards: <a href="mailto:info@battalla.com">info@battalla.com</a></p>
+      <p>Email us to learn how you can get cards:</a></p>
     </div>
 
     <div class="cta">
