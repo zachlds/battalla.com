@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   <title>HOME | Battalla TCG</title>
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./images/dc117f_a88498c6731148b3bfe48d80f65957bd_mv2.avif" />
+  <link rel="shortcut icon" type="image/png" href="./images/dc117f_a88498c6731148b3bfe48d80f65957bd_mv2.avif" />
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Fondamento&display=swap" rel="stylesheet" />
 
@@ -54,6 +58,7 @@
       width: 80%;
       height: auto;
       margin: 0 auto 1rem;
+      cursor: pointer;
     }
 
     /* Navigation */
@@ -148,6 +153,7 @@
       background: #c9b896;
       padding: 4rem 2rem;
       text-align: center;
+      scroll-margin-top: 80px;
     }
 
     .content-section h1 {
@@ -309,12 +315,12 @@
 <body>
   <!-- Header -->
   <header>
-    <img src="./images/dc117f_a88498c6731148b3bfe48d80f65957bd_mv2.avif" alt="Battalla!" class="logo-header" />
+    <img src="./images/dc117f_a88498c6731148b3bfe48d80f65957bd_mv2.avif" alt="Battalla!" class="logo-header" onclick="window.location.href='index.html'" />
     <nav>
       <ul class="nav-links">
-        <li><a href="#" class="home-link">HOME</a></li>
+        <li><a href="index.html" class="home-link">HOME</a></li>
         <li><a href="about.html">About Us</a></li>
-        <li><a href="#cards">Cards</a></li>
+        <li><a href="cards.html">Cards</a></li>
         <li><a href="#sale">On Sale Now!</a></li>
       </ul>
     </nav>
@@ -329,7 +335,7 @@
   <!-- Content -->
   <section class="content-section" id="sale">
     <h1>Starter Decks and Packs Out Now!</h1>
-    <p>Contact us to learn how you can get cards!</p>
+    <p>Contact us on FB or IG to learn how you can get cards!</p>
   </section>
 
   <!-- Footer -->
@@ -357,9 +363,17 @@
   <script>
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', e => {
+        const href = anchor.getAttribute('href');
+        if (href === '#') return; // Don't prevent default for just '#'
+        
         e.preventDefault();
-        const target = document.querySelector(anchor.getAttribute('href'));
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
       });
     });
   </script>
