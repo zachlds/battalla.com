@@ -385,6 +385,7 @@
           <button class="filter-btn" data-filter="greek">Greek</button>
           <button class="filter-btn" data-filter="egyptian">Egyptian</button>
           <button class="filter-btn" data-filter="assist">Assist</button>
+		  <button class="filter-btn" data-filter="assist">Field</button>
           <button class="filter-btn" data-filter="warrior">Warrior</button>
           <button class="filter-btn" data-filter="yokai">Yokai</button>
         </div>
@@ -492,8 +493,9 @@
           <div class="card-info">
             <div class="card-name">${card.name}</div>
             <div class="card-type">
-			${card.type}${card.subtype ? ` • ${card.subtype}` : ''}
+			${card.type} • ${card.category}${card.subtype ? ` • ${card.subtype}` : ''}
 			</div>
+
 
           </div>
         `;
