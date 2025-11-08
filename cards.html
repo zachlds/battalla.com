@@ -462,13 +462,16 @@
       if (activeFilters.has('all') || activeFilters.size === 0) {
         filteredCards = cardsData;
       } else {
-        // Filter cards that match ANY of the selected filters
-        filteredCards = cardsData.filter(card =>
-          activeFilters.has(card.type) ||
-          activeFilters.has(card.category) ||
-          activeFilters.has(card.subtype) ||
-          activeFilters.has(card.set)
-        );
+        // Filter cards that match ALL selected filters (AND logic)
+        filteredCards = cardsData.filter(card => {
+          // Check if the card matches all active filters
+          return Array.from(activeFilters).every(filter => {
+            return card.type === filter ||
+                   card.category === filter ||
+                   card.subtype === filter ||
+                   card.set === filter;
+          });
+        });
       }
 
       if (filteredCards.length === 0) {
