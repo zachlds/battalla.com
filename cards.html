@@ -378,14 +378,15 @@
         <h2 class="filter-title">Filter by Type</h2>
         <div class="filter-buttons">
           <button class="filter-btn active" data-filter="all">All Cards</button>
+          <button class="filter-btn" data-filter="set1">Set 1</button>
           <button class="filter-btn" data-filter="hero">Heroes</button>
           <button class="filter-btn" data-filter="celt">Celt</button>
           <button class="filter-btn" data-filter="yamato">Yamato</button>
           <button class="filter-btn" data-filter="greek">Greek</button>
           <button class="filter-btn" data-filter="egyptian">Egyptian</button>
           <button class="filter-btn" data-filter="assist">Assist</button>
-		  <button class="filter-btn" data-filter="warrior">Warrior</button>
-		  <button class="filter-btn" data-filter="yokai">Yokai</button>
+          <button class="filter-btn" data-filter="warrior">Warrior</button>
+          <button class="filter-btn" data-filter="yokai">Yokai</button>
         </div>
       </div>
 
@@ -430,19 +431,19 @@
     // Card data array - ADD YOUR CARDS HERE
     const cardsData = [
       // Example format - replace with your actual card data
-      { name: "Zeus", type: "greek", category: "hero", subtype: "warrior", image: "./images/Cards/Set1/Blue/Hero/Zeus.png" },
-	  { name: "Poseidon", type: "greek", category: "hero", subtype: "warrior", image: "./images/Cards/Set1/Blue/Hero/Poseidon.png" },
-	  { name: "Hades", type: "greek", category: "hero", subtype: "warrior", image: "./images/Cards/Set1/Blue/Hero/Hades.png" },
-	  { name: "Athena", type: "greek", category: "hero", subtype: "warrior", image: "./images/Cards/Set1/Blue/Hero/Athena.png" },
-	  { name: "Sutoko Teno", type: "yamato", category: "hero", subtype: "yokai", image: "./images/Cards/Set1/Purple/Hero/Sutoko_Teno.png" },
-	  { name: "Shuten Doji", type: "yamato", category: "hero", subtype: "yokai", image: "./images/Cards/Set1/Purple/Hero/Shuten_Doji.png" },
-	  { name: "Sojobo Tengu", type: "yamato", category: "hero", subtype: "yokai", image: "./images/Cards/Set1/Purple/Hero/Sojobo_Tengu.png" },
-	  { name: "Tamamo No Mae", type: "yamato", category: "hero", subtype: "yokai", image: "./images/Cards/Set1/Purple/Hero/Tamamo_No_Mae.png" },
+      { name: "Zeus", type: "greek", category: "hero", subtype: "warrior", set: "set1", image: "./images/Cards/Set1/Blue/Hero/Zeus.png" },
+      { name: "Poseidon", type: "greek", category: "hero", subtype: "warrior", set: "set1", image: "./images/Cards/Set1/Blue/Hero/Poseidon.png" },
+      { name: "Hades", type: "greek", category: "hero", subtype: "warrior", set: "set1", image: "./images/Cards/Set1/Blue/Hero/Hades.png" },
+      { name: "Athena", type: "greek", category: "hero", subtype: "warrior", set: "set1", image: "./images/Cards/Set1/Blue/Hero/Athena.png" },
+      { name: "Sutoko Teno", type: "yamato", category: "hero", subtype: "yokai", set: "set1", image: "./images/Cards/Set1/Purple/Hero/Sutoko_Teno.png" },
+      { name: "Shuten Doji", type: "yamato", category: "hero", subtype: "yokai", set: "set1", image: "./images/Cards/Set1/Purple/Hero/Shuten_Doji.png" },
+      { name: "Sojobo Tengu", type: "yamato", category: "hero", subtype: "yokai", set: "set1", image: "./images/Cards/Set1/Purple/Hero/Sojobo_Tengu.png" },
+      { name: "Tamamo No Mae", type: "yamato", category: "hero", subtype: "yokai", set: "set1", image: "./images/Cards/Set1/Purple/Hero/Tamamo_No_Mae.png" },
       // Add all your cards here...
     ];
 
-    // Current filter
-    let currentFilter = 'all';
+    // Current filters (now an array)
+    let activeFilters = new Set(['all']);
 
     // Initialize cards
     function initCards() {
@@ -450,22 +451,28 @@
       setupFilters();
     }
 
-    // Render cards based on current filter
+    // Render cards based on current filters
     function renderCards() {
       const grid = document.getElementById('cardsGrid');
       grid.innerHTML = '';
 
-      const filteredCards = currentFilter === 'all' 
-		? cardsData 
-		: cardsData.filter(card =>
-		card.type === currentFilter ||
-		card.category === currentFilter ||
-		card.subtype === currentFilter
-		);
-
+      let filteredCards;
+      
+      // If "all" is selected or no filters, show all cards
+      if (activeFilters.has('all') || activeFilters.size === 0) {
+        filteredCards = cardsData;
+      } else {
+        // Filter cards that match ANY of the selected filters
+        filteredCards = cardsData.filter(card =>
+          activeFilters.has(card.type) ||
+          activeFilters.has(card.category) ||
+          activeFilters.has(card.subtype) ||
+          activeFilters.has(card.set)
+        );
+      }
 
       if (filteredCards.length === 0) {
-        grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; font-size: 1.5rem; padding: 3rem;">No cards found. Add your card images to the cardsData array in the script.</p>';
+        grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; font-size: 1.5rem; padding: 3rem;">No cards match the selected filters.</p>';
         return;
       }
 
@@ -491,9 +498,35 @@
       const filterBtns = document.querySelectorAll('.filter-btn');
       filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-          filterBtns.forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          currentFilter = btn.getAttribute('data-filter');
+          const filterValue = btn.getAttribute('data-filter');
+          
+          // Handle "All Cards" button
+          if (filterValue === 'all') {
+            activeFilters.clear();
+            activeFilters.add('all');
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+          } else {
+            // Remove "all" if it was active
+            activeFilters.delete('all');
+            document.querySelector('[data-filter="all"]').classList.remove('active');
+            
+            // Toggle the clicked filter
+            if (activeFilters.has(filterValue)) {
+              activeFilters.delete(filterValue);
+              btn.classList.remove('active');
+            } else {
+              activeFilters.add(filterValue);
+              btn.classList.add('active');
+            }
+            
+            // If no filters selected, revert to "all"
+            if (activeFilters.size === 0) {
+              activeFilters.add('all');
+              document.querySelector('[data-filter="all"]').classList.add('active');
+            }
+          }
+          
           renderCards();
         });
       });
