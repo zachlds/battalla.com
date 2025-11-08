@@ -109,35 +109,6 @@
       letter-spacing: 2px;
     }
 
-    /* Sub Navigation */
-    .sub-nav {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .sub-nav a {
-      font-family: 'Fondamento', cursive;
-      background: rgba(139, 115, 85, 0.3);
-      color: #2c2416;
-      text-decoration: none;
-      padding: 0.8rem 1.5rem;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      transition: all 0.3s;
-      border: 2px solid #8b7355;
-    }
-
-    .sub-nav a:hover {
-      background: #8b6914;
-      color: #fff;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    }
-
     /* Filter Section */
     .filter-section {
       background: rgba(255, 255, 255, 0.6);
@@ -346,15 +317,6 @@
       .card-image {
         height: 280px;
       }
-
-      .sub-nav {
-        gap: 1rem;
-      }
-
-      .sub-nav a {
-        font-size: 1rem;
-        padding: 0.6rem 1rem;
-      }
     }
 
     @media (max-width: 480px) {
@@ -399,6 +361,8 @@
         <li><a href="index.html">HOME</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="cards.html" class="cards-link">Cards</a></li>
+        <li><a href="how-to-play.html">How to Play</a></li>
+        <li><a href="rulings.html">Rulings</a></li>
         <li><a href="index.html#sale">On Sale Now!</a></li>
       </ul>
     </nav>
@@ -408,12 +372,6 @@
   <section class="cards-section">
     <div class="cards-container">
       <h1 class="page-title">Card Gallery</h1>
-
-      <!-- Sub Navigation -->
-      <div class="sub-nav">
-        <a href="how-to-play.html">How to Play</a>
-        <a href="rulings.html">Rulings</a>
-      </div>
 
       <!-- Filter Section -->
       <div class="filter-section">
@@ -434,7 +392,6 @@
       <!-- Cards Grid -->
       <div class="cards-grid" id="cardsGrid">
         <!-- Cards will be dynamically loaded here -->
-        <!-- Example card structure (you'll replace this with your actual cards) -->
       </div>
     </div>
   </section>
