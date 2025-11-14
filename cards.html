@@ -540,6 +540,20 @@
         });
       }
 
+		// Sort cards by type (empty types go last), then by name alphabetically
+      filteredCards.sort((a, b) => {
+        // First sort by type
+        const typeA = a.type || 'zzz'; // Empty types go to end
+        const typeB = b.type || 'zzz';
+        
+        if (typeA !== typeB) {
+          return typeA.localeCompare(typeB);
+        }
+        
+        // If types are the same, sort by name
+        return a.name.localeCompare(b.name);
+      });
+
       if (filteredCards.length === 0) {
         grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; font-size: 1.5rem; padding: 3rem;">No cards match the selected filters.</p>';
         return;
