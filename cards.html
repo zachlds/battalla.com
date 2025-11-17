@@ -540,7 +540,6 @@
 	  { name: "Restful Tengu", type: "yamato", category: "unit", subtype: "yokai", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Restful Tengu.png" },
 	  { name: "Neglected Items", type: "yamato", category: "assist", subtype: "yokai", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Neglected Items.png" },
 	  { name: "Onibi", type: "yamato", category: "unit", subtype: "yokai", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Onibi.png" },
-	  { name: "Boroboroton", type: "yamato", category: "unit", subtype: "yokai", trait: "item", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Boroboroton.png" },
       // Add more cards here with the trait attribute...
     ];
 
@@ -607,13 +606,19 @@
         if (card.trait) cardTypeText += (cardTypeText ? ' • ' : '') + card.trait;
         if (card.category) cardTypeText += (cardTypeText ? ' • ' : '') + card.category;
         
+        const cardImg = document.createElement('img');
+        cardImg.src = card.image;
+        cardImg.alt = card.name;
+        cardImg.className = 'card-image';
+        cardImg.onclick = function() { openModal(card.image); };
+        
         cardElement.innerHTML = `
-          <img src="${card.image}" alt="${card.name}" class="card-image" onclick="openModal('${card.image}')" />
           <div class="card-info">
             <div class="card-name">${card.name}</div>
             <div class="card-type">${cardTypeText || 'Unknown'}</div>
           </div>
         `;
+        cardElement.insertBefore(cardImg, cardElement.firstChild);
         grid.appendChild(cardElement);
       });
     }
