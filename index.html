@@ -94,7 +94,7 @@
       color: #8b6914;
     }
 
-    .nav-links .home-link {
+    .nav-links .active {
       color: #8b6914;
       font-weight: bold;
       text-decoration: underline #8b6914 2px;
@@ -328,7 +328,7 @@
     <img src="./images/dc117f_a88498c6731148b3bfe48d80f65957bd_mv2.avif" alt="Battalla!" class="logo-header" onclick="window.location.href='index.html'" />
     <nav>
       <ul class="nav-links">
-        <li><a href="index.html" class="home-link">HOME</a></li>
+        <li><a href="index.html" class="active">HOME</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="cards.html">Cards</a></li>
         <li><a href="how-to-play.html">How to Play</a></li>
@@ -376,7 +376,7 @@
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', e => {
         const href = anchor.getAttribute('href');
-        if (href === '#') return; // Don't prevent default for just '#'
+        if (href === '#') return;
         
         e.preventDefault();
         const target = document.querySelector(href);
