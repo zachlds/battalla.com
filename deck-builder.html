@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <title>Deck Builder | Battalla TCG</title>
+  <link rel="icon" type="image/x-icon" href="https://battalla.com/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Fondamento&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Fondamento', cursive;
+      background: #000;
+      color: #2c2416;
+      line-height: 1.5;
+      letter-spacing: 0.3px;
+    }
+
+    header {
+      background: #c9b896;
+      padding: 1rem 0;
+      text-align: center;
+      border-bottom: 3px solid #8b7355;
+    }
+
+    .logo-header {
+      max-width: 300px;
+      width: 80%;
+      height: auto;
+      margin: 0 auto 1rem;
+      cursor: pointer;
+    }
+
+    nav {
+      background: #c9b896;
+      padding: 0.5rem 0;
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      list-style: none;
+      padding: 0 1rem;
+    }
+
+    .nav-links a {
+      color: #2c2416;
+      text-decoration: none;
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      transition: color 0.3s;
+      letter-spacing: 1px;
+      padding: 0.3rem 0.5rem;
+    }
+
+    .nav-links a:hover {
+      color: #8b6914;
+    }
+
+    .builder-container {
+      background: #c9b896;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .builder-content {
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    .page-title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      color: #2c2416;
+      text-align: center;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .builder-layout {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .card-pool {
+      background: rgba(255, 255, 255, 0.8);
+      border: 3px solid #8b7355;
+      border-radius: 15px;
+      padding: 1.5rem;
+    }
+
+    .filter-section {
+      background: rgba(139, 115, 85, 0.3);
+      border: 2px solid #8b7355;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .filter-label {
+      font-weight: bold;
+      color: #8b6914;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      margin-top: 1rem;
+      display: block;
+    }
+
+    .filter-label:first-of-type {
+      margin-top: 0;
+    }
+
+    .filter-row {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.7);
+      color: #2c2416;
+      border: 2px solid #8b7355;
+      padding: 0.3rem 0.8rem;
+      border-radius: 5px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-transform: uppercase;
+      font-family: 'Fondamento', cursive;
+    }
+
+    .filter-btn:hover {
+      background: #8b6914;
+      color: #fff;
+      border-color: #8b6914;
+    }
+
+    .filter-btn.active {
+      background: #8b6914;
+      color: #fff;
+      border-color: #8b6914;
+      box-shadow: 0 2px 8px rgba(139, 105, 20, 0.4);
+    }
+
+    .filter-btn.all-cards {
+      background: #2c2416;
+      color: #fff;
+      border-color: #2c2416;
+      padding: 0.5rem 1.5rem;
+      font-size: 1rem;
+    }
+
+    .filter-btn.all-cards.active {
+      background: #8b6914;
+      border-color: #8b6914;
+    }
+
+    .search-box {
+      width: 100%;
+      padding: 0.8rem;
+      border: 2px solid #8b7355;
+      border-radius: 5px;
+      font-family: 'Fondamento', cursive;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1rem;
+      max-height: 600px;
+      overflow-y: auto;
+    }
+
+    .card-item {
+      background: rgba(255, 255, 255, 0.9);
+      border: 2px solid #8b7355;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .card-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      border-color: #8b6914;
+    }
+
+    .card-image {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-info {
+      padding: 0.5rem;
+      text-align: center;
+    }
+
+    .card-name {
+      font-size: 0.9rem;
+      font-weight: bold;
+      margin-bottom: 0.3rem;
+    }
+
+    .card-count-badge {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background: #8b6914;
+      color: #fff;
+      padding: 0.3rem 0.6rem;
+      border-radius: 50%;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    .deck-panel {
+      background: rgba(255, 255, 255, 0.8);
+      border: 3px solid #8b7355;
+      border-radius: 15px;
+      padding: 1.5rem;
+      position: sticky;
+      top: 2rem;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    .deck-section {
+      margin-bottom: 2rem;
+    }
+
+    .deck-title {
+      font-size: 1.5rem;
+      color: #8b6914;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #8b7355;
+      padding-bottom: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .deck-count {
+      font-size: 1rem;
+      color: #2c2416;
+    }
+
+    .deck-list {
+      list-style: none;
+    }
+
+    .deck-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem;
+      margin-bottom: 0.5rem;
+      background: rgba(139, 115, 85, 0.1);
+      border-radius: 5px;
+    }
+
+    .deck-item-name {
+      flex: 1;
+      font-size: 0.9rem;
+    }
+
+    .deck-item-controls {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .deck-item-count {
+      font-weight: bold;
+      color: #8b6914;
+      min-width: 20px;
+      text-align: center;
+    }
+
+    .control-btn {
+      background: #8b6914;
+      color: #fff;
+      border: none;
+      padding: 0.3rem 0.6rem;
+      border-radius: 3px;
+      cursor: pointer;
+      font-weight: bold;
+      font-family: 'Fondamento', cursive;
+    }
+
+    .control-btn:hover {
+      background: #2c2416;
+    }
+
+    .action-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .action-btn {
+      background: #8b6914;
+      color: #fff;
+      border: none;
+      padding: 0.8rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: all 0.3s;
+      font-family: 'Fondamento', cursive;
+      text-transform: uppercase;
+    }
+
+    .action-btn:hover {
+      background: #2c2416;
+    }
+
+    .action-btn.secondary {
+      background: #8b7355;
+    }
+
+    .validation-error {
+      background: rgba(255, 0, 0, 0.1);
+      border: 2px solid #c0392b;
+      color: #c0392b;
+      padding: 0.8rem;
+      border-radius: 5px;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    .validation-success {
+      background: rgba(0, 255, 0, 0.1);
+      border: 2px solid #27ae60;
+      color: #27ae60;
+      padding: 0.8rem;
+      border-radius: 5px;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    @media (max-width: 1200px) {
+      .builder-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .deck-panel {
+        position: static;
+        max-height: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .cards-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      }
+
+      .card-image {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="./images/dc117f_a88498c6731148b3bfe48d80f65957bd_mv2.avif" alt="Battalla!" class="logo-header" onclick="window.location.href='index.html'" />
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="cards.html">Cards</a></li>
+        <li><a href="how-to-play.html">How to Play</a></li>
+        <li><a href="rulings.html">Rulings</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="builder-container">
+    <div class="builder-content">
+      <h1 class="page-title">Deck Builder</h1>
+
+      <div class="builder-layout">
+        <div class="card-pool">
+          <div class="filter-section">
+            <input type="text" class="search-box" id="searchBox" placeholder="Search cards...">
+            
+            <div style="text-align: center; margin-bottom: 0.5rem;">
+              <button class="filter-btn all-cards active" data-filter="all">All Cards</button>
+            </div>
+
+            <span class="filter-label">Set:</span>
+            <div class="filter-row">
+              <button class="filter-btn" data-filter="set1">Set 1</button>
+            </div>
+
+            <span class="filter-label">Card Type:</span>
+            <div class="filter-row">
+              <button class="filter-btn" data-filter="hero">Hero</button>
+              <button class="filter-btn" data-filter="unit">Unit</button>
+              <button class="filter-btn" data-filter="assist">Assist</button>
+              <button class="filter-btn" data-filter="field">Field</button>
+            </div>
+
+            <span class="filter-label">Faction:</span>
+            <div class="filter-row">
+              <button class="filter-btn" data-filter="greek">Greek</button>
+              <button class="filter-btn" data-filter="yamato">Yamato</button>
+              <button class="filter-btn" data-filter="celt">Celt</button>
+              <button class="filter-btn" data-filter="egyptian">Egyptian</button>
+            </div>
+
+            <span class="filter-label">Subtype:</span>
+            <div class="filter-row">
+              <button class="filter-btn" data-filter="warrior">Warrior</button>
+              <button class="filter-btn" data-filter="yokai">Yokai</button>
+              <button class="filter-btn" data-filter="fae">Fae</button>
+              <button class="filter-btn" data-filter="beast">Beast</button>
+              <button class="filter-btn" data-filter="scholar">Scholar</button>
+              <button class="filter-btn" data-filter="onmyoji">Onmyoji</button>
+              <button class="filter-btn" data-filter="shikigami">Shikigami</button>
+            </div>
+          </div>
+
+          <div class="cards-grid" id="cardsGrid"></div>
+        </div>
+
+        <div class="deck-panel">
+          <div class="deck-section">
+            <div class="deck-title">
+              <span>Hero Deck</span>
+              <span class="deck-count" id="heroDeckCount">0/5</span>
+            </div>
+            <ul class="deck-list" id="heroDeckList"></ul>
+          </div>
+
+          <div class="deck-section">
+            <div class="deck-title">
+              <span>Main Deck</span>
+              <span class="deck-count" id="mainDeckCount">0/40-60</span>
+            </div>
+            <ul class="deck-list" id="mainDeckList"></ul>
+          </div>
+
+          <div class="action-buttons">
+            <button class="action-btn" onclick="validateDeck()">Validate Deck</button>
+            <button class="action-btn" onclick="exportDeck()">Export Deck List</button>
+            <button class="action-btn secondary" onclick="clearDeck()">Clear Deck</button>
+          </div>
+
+          <div id="validationMessage"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const cardsData = [
+      { name: "Zeus", type: "greek", category: "hero", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Hero/Zeus.png" },
+      { name: "Poseidon", type: "greek", category: "hero", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Hero/Poseidon.png" },
+      { name: "Hades", type: "greek", category: "hero", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Hero/Hades.png" },
+      { name: "Athena", type: "greek", category: "hero", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Hero/Athena.png" },
+      { name: "Sutoko Teno", type: "yamato", category: "hero", subtype: "yokai", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Hero/Sutoko_Teno.png" },
+      { name: "Shuten Doji", type: "yamato", category: "hero", subtype: "yokai", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Hero/Shuten_Doji.png" },
+      { name: "Sojobo Tengu", type: "yamato", category: "hero", subtype: "yokai", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Hero/Sojobo_Tengu.png" },
+      { name: "Tamamo No Mae", type: "yamato", category: "hero", subtype: "yokai", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Hero/Tamamo_No_Mae.png" },
+      { name: "Horus", type: "egyptian", category: "hero", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Hero/Horus.png" },
+      { name: "Isis", type: "egyptian", category: "hero", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Hero/Isis.png" },
+      { name: "Nephthys", type: "egyptian", category: "hero", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Hero/Nephthys.png" },
+      { name: "Osiris", type: "egyptian", category: "hero", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Hero/Osiris.png" },
+      { name: "Conchobar mac Nessa", type: "celt", category: "hero", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Hero/Conchobar mac Nessa.png" },
+      { name: "Blood Rage CuChulainn", type: "celt", category: "hero", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Hero/Blood Rage CuChulainn.png" },
+      { name: "CuChulainn", type: "celt", category: "hero", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Hero/CuChulainn.png" },
+      { name: "Lugh of the Long Arm", type: "celt", category: "hero", subtype: "fae", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Hero/Lugh of the Long Arm.png" },
+      { name: "Danu, Mother of Fae", type: "celt", category: "hero", subtype: "fae", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Hero/Danu, Mother of Fae.png" },
+      { name: "Ancient Notes", type: "", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Assist/Ancient Notes.png" },
+      { name: "Second Chance", type: "", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Assist/Second Chance.png" },
+      { name: "Painful Price", type: "", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Assist/Painful Price.png" },
+      { name: "Legends Retold", type: "", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Assist/Legends Retold.png" },
+      { name: "Hero Calling", type: "", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Assist/Hero Calling.png" },
+      { name: "Potion of Memories", type: "item", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Assist/Potion of Memories.png" },
+      { name: "Argonaut Castor", type: "greek", category: "unit", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Argonaut Castor.png" },
+      { name: "Argonaut Herakles", type: "greek", category: "unit", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Argonaut Herakles.png" },
+      { name: "Argonaut Jason", type: "greek", category: "unit", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Argonaut Jason.png" },
+      { name: "Argonaut Polydeuces", type: "greek", category: "unit", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Argonaut Polydeuces.png" },
+      { name: "Argonaut Orpheus", type: "greek", category: "unit", subtype: "scholar", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Argonaut Orpheus.png" },
+      { name: "Asclepius", type: "greek", category: "unit", subtype: "scholar", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Asclepius.png" },
+      { name: "Daedalus", type: "greek", category: "unit", subtype: "scholar", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Daedalus.png" },
+      { name: "Moira Clotho", type: "greek", category: "unit", subtype: "scholar", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Moira Clotho.png" },
+      { name: "Nymph Eurydice", type: "greek", category: "unit", subtype: "scholar", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Nymph Eurydice.png" },
+      { name: "The Oracle of Delphi", type: "greek", category: "unit", subtype: "scholar", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/The Oracle of Delphi.png" },
+      { name: "Campe", type: "greek", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Campe.png" },
+      { name: "Cerberus", type: "greek", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Cerberus.png" },
+      { name: "Cyclops", type: "greek", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Cyclops.png" },
+      { name: "Hydra", type: "greek", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Hydra.png" },
+      { name: "Siren", type: "greek", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Siren.png" },
+      { name: "Charon's Ferry", type: "greek", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Charons Ferry.png" },
+      { name: "Hermes' Sandals", type: "greek", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Hermes Sandals.png" },
+      { name: "Zeus' Lightning Bolt", type: "greek", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Zeus Lightning Bolt.png" },
+      { name: "Hydra's Poison", type: "greek", category: "assist", subtype: "item", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Hydras Poison.png" },
+      { name: "Poseidon's Trident", type: "greek", category: "assist", subtype: "item", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Poseidons Trident.png" },
+      { name: "Elysium", type: "greek", category: "field", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Elysium.png" },
+      { name: "Underworld", type: "greek", category: "field", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Underworld.png" },
+      { name: "Aaru- Field of Reeds", type: "egyptian", category: "field", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Aaru- Field of Reeds.png" },
+      { name: "Amulet of Resurrection", type: "egyptian", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Amulet of Resurrection.png" },
+      { name: "Anmmit The Devourer", type: "egyptian", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Anmmit The Devourer.png" },
+      { name: "Ankh- Amulet of Life", type: "egyptian", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Ankh- Amulet of Life.png" },
+      { name: "Apep- The Demon of Chaos", type: "egyptian", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Apep- The Demon of Chaos.png" },
+      { name: "Awaken Mummy", type: "egyptian", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Awaken Mummy.png" },
+      { name: "Blessings of the Nile", type: "egyptian", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Blessings of the Nile.png" },
+      { name: "Collective Undead of Duat", type: "egyptian", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Collective Undead of Duat.png" },
+      { name: "El Naddaha of the Nile", type: "egyptian", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/El Naddaha of the Nile.png" },
+      { name: "Eye of Horus", type: "egyptian", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Eye of Horus.png" },
+      { name: "Eye of Ra", type: "egyptian", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Eye of Ra.png" },
+      { name: "False Door", type: "egyptian", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/False Door.png" },
+      { name: "Fish of Abta", type: "egyptian", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Fish of Abta.png" },
+      { name: "Fragments of Osiris", type: "egyptian", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Fragments of Osiris.png" },
+      { name: "Great Sphinx", type: "egyptian", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Great Sphinx.png" },
+      { name: "Jackal Head of the First Gate", type: "egyptian", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Jackal Head of the First Gate.png" },
+      { name: "Majestie Griffin", type: "egyptian", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Majestie Griffin.png" },
+      { name: "Pharoah's Sarcophagus", type: "egyptian", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Pharoahs Sarcophagus.png" },
+      { name: "Ram Head of the First Gate", type: "egyptian", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Ram Head of the First Gate.png" },
+      { name: "Twin Lions Akher", type: "egyptian", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Twin Lions Akher.png" },
+      { name: "Uraeus", type: "egyptian", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Uraeus.png" },
+      { name: "Chulainn", type: "celt", category: "unit", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Chulainn.png" },
+      { name: "Finegas", type: "celt", category: "unit", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Finegas.png" },
+      { name: "Fintan", type: "celt", category: "unit", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Fintan.png" },
+      { name: "Fionn", type: "celt", category: "unit", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Fionn.png" },
+      { name: "Macha", type: "celt", category: "unit", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Macha.png" },
+      { name: "Scathach", type: "celt", category: "unit", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Scathach.png" },
+      { name: "Setante", type: "celt", category: "unit", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Setante.png" },
+      { name: "Corra", type: "celt", category: "unit", subtype: "fae", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Corra.png" },
+      { name: "Far Darrig", type: "celt", category: "unit", subtype: "fae", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Far Darrig.png" },
+      { name: "Gancanagh", type: "celt", category: "unit", subtype: "fae", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Gancanagh.png" },
+      { name: "Luhg", type: "celt", category: "unit", subtype: "fae", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Luhg.png" },
+      { name: "Pooka (Dog Form)", type: "celt", category: "unit", subtype: "fae", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Pooka (Dog Form).png" },
+      { name: "Pooka (Human Form)", type: "celt", category: "unit", subtype: "fae", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Pooka (Human Form).png" },
+      { name: "Pooka (True Form)", type: "celt", category: "unit", subtype: "fae", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Pooka (True Form).png" },
+      { name: "Salmon of Wisdom", type: "celt", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Salmon of Wisdom.png" },
+      { name: "Blessings of the Dahnnan", type: "celt", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Blessings of the Dahnnan.png" },
+      { name: "Druid's Foresight", type: "celt", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Druids Foresight.png" },
+      { name: "Fuamnach's Scheme", type: "celt", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Fuamnach's Scheme.png" },
+      { name: "Gae Bulg", type: "celt", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Gae Bulg.png" },
+      { name: "Hound of Chulainn", type: "celt", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Hound of Chulainn.png" },
+      { name: "Pooka Mischief", type: "celt", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Pooka Mischief.png" },
+      { name: "Shape Change", type: "celt", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Shape Change.png" },
+      { name: "Tir na Nog", type: "celt", category: "field", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Tir na Nog.png" },
+      { name: "Yokai Parade", type: "yamato", category: "field", subtype: "yokai", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Yokai Parade.png" },
+      { name: "100-Year-Old Spirit", type: "yamato", category: "assist", subtype: "yokai", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/100-Year-Old Spirit.png" },
+      { name: "Faithful Spirit", type: "yamato", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Faithful Spirit.png" },
+      { name: "Taizen Fukansai", type: "yamato", category: "assist", subtype: "yokai", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Taizen Fukansai.png" },
+      { name: "Tengu Shogi Game", type: "yamato", category: "assist", subtype: "yokai", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Tengu Shogi Game.png" },
+      { name: "Shikigami Parade", type: "yamato", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Shikigami Parade.png" },
+      { name: "Restful Tengu", type: "yamato", category: "unit", subtype: "yokai", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Restful Tengu.png" },
+      { name: "Neglected Items", type: "yamato", category: "assist", subtype: "yokai", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Neglected Items.png" },
+      { name: "Onibi", type: "yamato", category: "unit", subtype: "yokai", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Onibi.png" },
+      { name: "Boroboroton", type: "yamato", category: "unit", subtype: "yokai", trait: "item", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Boroboroton.png" },
+      { name: "Ashiya Doman", type: "yamato", category: "unit", subtype: "onmyoji", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Ashiya Doman.png" },
+      { name: "Minamoto No Yorimitsu", type: "yamato", category: "unit", subtype: "onmyoji", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Minamoto No Yorimitsu.png" },
+      { name: "Kuda-Ya", type: "yamato", category: "unit", subtype: "onmyoji", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Kuda-Ya.png" },
+      { name: "ChoChin Obake", type: "yamato", category: "unit", subtype: "yokai", trait: "item", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/ChoChin Obake.png" },
+      { name: "Ittan Momen", type: "yamato", category: "unit", subtype: "yokai", trait: "item", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Ittan Momen.png" },
+      { name: "Kasa Obake", type: "yamato", category: "unit", subtype: "yokai", trait: "item", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Kasa Obake.png" },
+      { name: "Mokumokuren", type: "yamato", category: "unit", subtype: "yokai", trait: "item", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Mokumokuren.png" },
+      { name: "Yamaoroshi", type: "yamato", category: "unit", subtype: "yokai", trait: "item", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Yamaoroshi.png" },
+      { name: "Inugami", type: "yamato", category: "unit", subtype: "yokai", trait: "shikigami", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Inugami.png" },
+      { name: "Kudagitsune", type: "yamato", category: "unit", subtype: "yokai", trait: "shikigami", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Kudagitsune.png" },
+      { name: "Paper Shikigami", type: "yamato", category: "unit", subtype: "yokai", trait: "shikigami", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Paper Shikigami.png" },
+    ];
+
+    let heroDeck = {};
+    let mainDeck = {};
+    let activeFilters = new Set(['all']);
+    let searchTerm = '';
+
+    function init() {
+      renderCards();
+      setupFilters();
+      setupSearch();
+      updateDeckDisplay();
+    }
+
+    function setupFilters() {
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const filterValue = btn.getAttribute('data-filter');
+          
+          if (filterValue === 'all') {
+            activeFilters.clear();
+            activeFilters.add('all');
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+          } else {
+            activeFilters.delete('all');
+            document.querySelector('[data-filter="all"]').classList.remove('active');
+            
+            if (activeFilters.has(filterValue)) {
+              activeFilters.delete(filterValue);
+              btn.classList.remove('active');
+            } else {
+              activeFilters.add(filterValue);
+              btn.classList.add('active');
+            }
+            
+            if (activeFilters.size === 0) {
+              activeFilters.add('all');
+              document.querySelector('[data-filter="all"]').classList.add('active');
+            }
+          }
+          
+          renderCards();
+        });
+      });
+    }
+
+    function setupSearch() {
+      document.getElementById('searchBox').addEventListener('input', (e) => {
+        searchTerm = e.target.value.toLowerCase();
+        renderCards();
+      });
+    }
+
+    function renderCards() {
+      const grid = document.getElementById('cardsGrid');
+      grid.innerHTML = '';
+
+      let filtered;
+      
+      if (activeFilters.has('all') || activeFilters.size === 0) {
+        filtered = cardsData;
+      } else {
+        filtered = cardsData.filter(card => {
+          return Array.from(activeFilters).every(filter => {
+            return card.type === filter ||
+                   card.category === filter ||
+                   card.subtype === filter ||
+                   card.trait === filter ||
+                   card.set === filter;
+          });
+        });
+      }
+
+      if (searchTerm) {
+        filtered = filtered.filter(card => card.name.toLowerCase().includes(searchTerm));
+      }
+
+      filtered.sort((a, b) => {
+        const typeA = a.type || 'zzz';
+        const typeB = b.type || 'zzz';
+        
+        if (typeA !== typeB) {
+          return typeA.localeCompare(typeB);
+        }
+        
+        return a.name.localeCompare(b.name);
+      });
+
+      filtered.forEach(card => {
+        const el = document.createElement('div');
+        el.className = 'card-item';
+        
+        const inHeroDeck = heroDeck[card.name] || 0;
+        const inMainDeck = mainDeck[card.name]?.count || 0;
+        const totalCount = inHeroDeck + inMainDeck;
+
+        if (totalCount > 0) {
+          el.innerHTML = `<div class="card-count-badge">${totalCount}</div>`;
+        }
+
+        el.innerHTML += `
+          <img src="${card.image}" alt="${card.name}" class="card-image">
+          <div class="card-info">
+            <div class="card-name">${card.name}</div>
+          </div>
+        `;
+
+        el.addEventListener('click', () => addCard(card));
+        grid.appendChild(el);
+      });
+    }
+
+    function addCard(card) {
+      if (card.category === 'hero') {
+        if (Object.keys(heroDeck).length >= 5) {
+          showMessage('Hero Deck is full (max 5 cards)', 'error');
+          return;
+        }
+        if (heroDeck[card.name]) {
+          showMessage('Hero already in deck (only 1 copy allowed)', 'error');
+          return;
+        }
+        heroDeck[card.name] = { card, count: 1 };
+      } else {
+        const currentCount = mainDeck[card.name]?.count || 0;
+        if (currentCount >= 3) {
+          showMessage('Maximum 3 copies of this card', 'error');
+          return;
+        }
+        if (!mainDeck[card.name]) {
+          mainDeck[card.name] = { card, count: 0 };
+        }
+        mainDeck[card.name].count++;
+      }
+      
+      updateDeckDisplay();
+      renderCards();
+    }
+
+    function removeCard(cardName, fromHero) {
+      if (fromHero) {
+        delete heroDeck[cardName];
+      } else {
+        if (mainDeck[cardName]) {
+          mainDeck[cardName].count--;
+          if (mainDeck[cardName].count === 0) {
+            delete mainDeck[cardName];
+          }
+        }
+      }
+      updateDeckDisplay();
+      renderCards();
+    }
+
+    function updateDeckDisplay() {
+      const heroList = document.getElementById('heroDeckList');
+      const mainList = document.getElementById('mainDeckList');
+      
+      heroList.innerHTML = '';
+      Object.entries(heroDeck).forEach(([name, data]) => {
+        const li = document.createElement('li');
+        li.className = 'deck-item';
+        li.innerHTML = `
+          <span class="deck-item-name">${name}</span>
+          <div class="deck-item-controls">
+            <button class="control-btn" onclick="removeCard('${name.replace(/'/g, "\\'")}', true)">×</button>
+          </div>
+        `;
+        heroList.appendChild(li);
+      });
+
+      mainList.innerHTML = '';
+      Object.entries(mainDeck).forEach(([name, data]) => {
+        const li = document.createElement('li');
+        li.className = 'deck-item';
+        const cardData = JSON.stringify(data.card).replace(/'/g, "\\'");
+        li.innerHTML = `
+          <span class="deck-item-name">${name}</span>
+          <div class="deck-item-controls">
+            <span class="deck-item-count">×${data.count}</span>
+            <button class="control-btn" onclick='addCard(${cardData})'>+</button>
+            <button class="control-btn" onclick="removeCard('${name.replace(/'/g, "\\'")}', false)">−</button>
+          </div>
+        `;
+        mainList.appendChild(li);
+      });
+
+      const heroCount = Object.keys(heroDeck).length;
+      const mainCount = Object.values(mainDeck).reduce((sum, d) => sum + d.count, 0);
+      
+      document.getElementById('heroDeckCount').textContent = `${heroCount}/5`;
+      document.getElementById('mainDeckCount').textContent = `${mainCount}/40-60`;
+    }
+
+    function validateDeck() {
+      const errors = [];
+      const heroCount = Object.keys(heroDeck).length;
+      const mainCount = Object.values(mainDeck).reduce((sum, d) => sum + d.count, 0);
+
+      if (heroCount === 0) {
+        errors.push('Hero Deck must have at least 1 Hero');
+      }
+
+      if (mainCount < 40) {
+        errors.push(`Main Deck must have at least 40 cards (current: ${mainCount})`);
+      }
+
+      if (mainCount > 60) {
+        errors.push(`Main Deck cannot exceed 60 cards (current: ${mainCount})`);
+      }
+
+      if (errors.length === 0) {
+        showMessage('✓ Deck is valid and ready to play!', 'success');
+      } else {
+        showMessage('Deck Validation Errors:\n' + errors.join('\n'), 'error');
+      }
+    }
+
+    function exportDeck() {
+      let output = '=== BATTALLA DECK LIST ===\n\n';
+      
+      output += `HERO DECK (${Object.keys(heroDeck).length}/5):\n`;
+      Object.entries(heroDeck).forEach(([name]) => {
+        output += `1x ${name}\n`;
+      });
+
+      const mainCount = Object.values(mainDeck).reduce((sum, d) => sum + d.count, 0);
+      output += `\nMAIN DECK (${mainCount}/40-60):\n`;
+      Object.entries(mainDeck).sort((a, b) => a[0].localeCompare(b[0])).forEach(([name, data]) => {
+        output += `${data.count}x ${name}\n`;
+      });
+
+      const blob = new Blob([output], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'battalla_deck.txt';
+      a.click();
+      URL.revokeObjectURL(url);
+
+      showMessage('Deck list exported successfully!', 'success');
+    }
+
+    function clearDeck() {
+      if (confirm('Are you sure you want to clear your entire deck?')) {
+        heroDeck = {};
+        mainDeck = {};
+        updateDeckDisplay();
+        renderCards();
+        showMessage('Deck cleared', 'success');
+      }
+    }
+
+    function showMessage(msg, type) {
+      const container = document.getElementById('validationMessage');
+      container.className = type === 'error' ? 'validation-error' : 'validation-success';
+      container.textContent = msg;
+      container.style.whiteSpace = 'pre-line';
+      setTimeout(() => {
+        container.textContent = '';
+        container.className = '';
+      }, 5000);
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>
