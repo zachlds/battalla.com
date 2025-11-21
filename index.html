@@ -4,14 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   <title>HOME | Battalla TCG</title>
-
-  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="https://battalla.com/favicon.ico">
   <link rel="shortcut icon" type="image/x-icon" href="https://battalla.com/favicon.ico">
-
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Fondamento&display=swap" rel="stylesheet" />
-
   <style>
     @font-face {
       font-family: 'Brighten Round';
@@ -45,7 +40,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Header */
     header {
       background: #c9b896;
       padding: 1rem 0;
@@ -61,7 +55,6 @@
       cursor: pointer;
     }
 
-    /* Navigation */
     nav {
       background: #c9b896;
       padding: 0.5rem 0;
@@ -100,7 +93,6 @@
       text-decoration: underline #8b6914 2px;
     }
 
-    /* Hero Section */
     .hero {
       position: relative;
       height: 100vh;
@@ -148,7 +140,6 @@
       border-radius: 8px;
     }
 
-    /* Content Section */
     .content-section {
       background: #c9b896;
       padding: 4rem 2rem;
@@ -172,7 +163,6 @@
       line-height: 1.6;
     }
 
-    /* Footer */
     footer {
       background: #c9b896;
       padding: 2rem 1rem;
@@ -213,7 +203,6 @@
       height: clamp(32px, 5vw, 40px);
     }
 
-    /* Tablet */
     @media (max-width: 768px) {
       .logo-header {
         max-width: 220px;
@@ -243,7 +232,6 @@
       }
     }
 
-    /* Mobile */
     @media (max-width: 480px) {
       .logo-header {
         max-width: 160px;
@@ -309,7 +297,6 @@
       }
     }
 
-    /* Extra small phones */
     @media (max-width: 360px) {
       .logo-header {
         max-width: 140px;
@@ -323,7 +310,6 @@
 </head>
 
 <body>
-  <!-- Header -->
   <header>
     <img src="./images/dc117f_a88498c6731148b3bfe48d80f65957bd_mv2.avif" alt="Battalla!" class="logo-header" onclick="window.location.href='index.html'" />
     <nav>
@@ -331,6 +317,7 @@
         <li><a href="index.html" class="active">HOME</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="cards.html">Cards</a></li>
+        <li><a href="deck-builder.html">Deck Builder</a></li>
         <li><a href="how-to-play.html">How to Play</a></li>
         <li><a href="rulings.html">Rulings</a></li>
         <li><a href="#sale">On Sale Now!</a></li>
@@ -338,19 +325,16 @@
     </nav>
   </header>
 
-  <!-- Hero -->
   <section class="hero">
     <p>A New Kind of TCG</p>
     <img src="./images/battalla-logolarge.png" alt="Battalla!" class="hero-logo" />
   </section>
 
-  <!-- Content -->
   <section class="content-section" id="sale">
     <h1>Starter Decks and Packs Out Now!</h1>
     <p>Contact us on FB or IG to learn how you can get cards!</p>
   </section>
 
-  <!-- Footer -->
   <footer>
     <h2>Follow Our Socials!</h2>
     <div class="social-icons">

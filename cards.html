@@ -417,6 +417,7 @@
         <li><a href="index.html">HOME</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="cards.html" class="cards-link">Cards</a></li>
+        <li><a href="deck-builder.html">Deck Builder</a></li>
         <li><a href="how-to-play.html">How to Play</a></li>
         <li><a href="rulings.html">Rulings</a></li>
         <li><a href="index.html#sale">On Sale Now!</a></li>
@@ -438,50 +439,8 @@
             <button class="filter-btn all-cards active" data-filter="all">All Cards</button>
           </div>
 
-          <!-- Set -->
-          <div class="filter-group">
-            <span class="filter-group-label">Set:</span>
-            <div class="filter-buttons">
-              <button class="filter-btn" data-filter="set1">Set 1</button>
-            </div>
-          </div>
-
-          <!-- Card Type -->
-          <div class="filter-group">
-            <span class="filter-group-label">Card Type:</span>
-            <div class="filter-buttons">
-              <button class="filter-btn" data-filter="hero">Hero</button>
-              <button class="filter-btn" data-filter="unit">Unit</button>
-              <button class="filter-btn" data-filter="assist">Assist</button>
-              <button class="filter-btn" data-filter="field">Field</button>
-              <button class="filter-btn" data-filter="item">Item</button>
-            </div>
-          </div>
-
-          <!-- Faction -->
-          <div class="filter-group">
-            <span class="filter-group-label">Faction:</span>
-            <div class="filter-buttons">
-              <button class="filter-btn" data-filter="greek">Greek</button>
-              <button class="filter-btn" data-filter="yamato">Yamato</button>
-              <button class="filter-btn" data-filter="celt">Celt</button>
-              <button class="filter-btn" data-filter="egyptian">Egyptian</button>
-            </div>
-          </div>
-
-          <!-- Subtype -->
-          <div class="filter-group">
-            <span class="filter-group-label">Subtype:</span>
-            <div class="filter-buttons">
-              <button class="filter-btn" data-filter="warrior">Warrior</button>
-              <button class="filter-btn" data-filter="yokai">Yokai</button>
-              <button class="filter-btn" data-filter="fae">Fae</button>
-              <button class="filter-btn" data-filter="beast">Beast</button>
-              <button class="filter-btn" data-filter="scholar">Scholar</button>
-              <button class="filter-btn" data-filter="onmyoji">Onmyoji</button>
-              <button class="filter-btn" data-filter="shikigami">Shikigami</button>
-            </div>
-          </div>
+          <!-- Dynamic filters will be inserted here -->
+          <div id="dynamicFilters"></div>
         </div>
       </div>
 
@@ -522,128 +481,77 @@
     </div>
   </footer>
 
+  <script src="./cards-data.js"></script>
   <script>
-    // Card data array - ADD YOUR CARDS HERE
-    const cardsData = [
-      { name: "Zeus", type: "greek", category: "hero", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Hero/Zeus.png" },
-      { name: "Poseidon", type: "greek", category: "hero", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Hero/Poseidon.png" },
-      { name: "Hades", type: "greek", category: "hero", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Hero/Hades.png" },
-      { name: "Athena", type: "greek", category: "hero", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Hero/Athena.png" },
-      { name: "Sutoko Teno", type: "yamato", category: "hero", subtype: "yokai", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Hero/Sutoko_Teno.png" },
-      { name: "Shuten Doji", type: "yamato", category: "hero", subtype: "yokai", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Hero/Shuten_Doji.png" },
-      { name: "Sojobo Tengu", type: "yamato", category: "hero", subtype: "yokai", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Hero/Sojobo_Tengu.png" },
-      { name: "Tamamo No Mae", type: "yamato", category: "hero", subtype: "yokai", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Hero/Tamamo_No_Mae.png" },
-	  { name: "Horus", type: "egyptian", category: "hero", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Hero/Horus.png" },
-	  { name: "Isis", type: "egyptian", category: "hero", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Hero/Isis.png" },
-	  { name: "Nephthys", type: "egyptian", category: "hero", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Hero/Nephthys.png" },
-	  { name: "Osiris", type: "egyptian", category: "hero", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Hero/Osiris.png" },
-	  { name: "Aaru- Field of Reeds", type: "egyptian", category: "field", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Aaru- Field of Reeds.png" },
-	  { name: "Amulet of Resurrection", type: "egyptian", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Amulet of Resurrection.png" },
-	  { name: "Anmmit The Devourer", type: "egyptian", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Anmmit The Devourer.png" },
-	  { name: "Ankh- Amulet of Life", type: "egyptian", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Ankh- Amulet of Life.png" },
-	  { name: "Apep- The Demon of Chaos", type: "egyptian", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Apep- The Demon of Chaos.png" },
-	  { name: "Awaken Mummy", type: "egyptian", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Awaken Mummy.png" },
-	  { name: "Blessings of the Nile", type: "egyptian", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Blessings of the Nile.png" },
-	  { name: "Collective Undead of Duat", type: "egyptian", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Collective Undead of Duat.png" },
-	  { name: "El Naddaha of the Nile", type: "egyptian", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/El Naddaha of the Nile.png" },
-	  { name: "Eye of Horus", type: "egyptian", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Eye of Horus.png" },
-	  { name: "Eye of Ra", type: "egyptian", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Eye of Ra.png" },
-	  { name: "False Door", type: "egyptian", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/False Door.png" },
-	  { name: "Fish of Abta", type: "egyptian", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Fish of Abta.png" },
-	  { name: "Fragments of Osiris", type: "egyptian", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Fragments of Osiris.png" },
-	  { name: "Great Sphinx", type: "egyptian", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Great Sphinx.png" },
-	  { name: "Jackal Head of the First Gate", type: "egyptian", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Jackal Head of the First Gate.png" },
-	  { name: "Majestie Griffin", type: "egyptian", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Majestie Griffin.png" },
-	  { name: "Pharoah's Sarcophagus", type: "egyptian", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Pharoahs Sarcophagus.png" },
-	  { name: "Ram Head of the First Gate", type: "egyptian", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Ram Head of the First Gate.png" },
-	  { name: "Twin Lions Akher", type: "egyptian", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Twin Lions Akher.png" },
-	  { name: "Uraeus", type: "egyptian", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Uraeus.png" },
-	  { name: "Conchobar mac Nessa", type: "celt", category: "hero", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Hero/Conchobar mac Nessa.png" },
-	  { name: "Blood Rage CuChulainn", type: "celt", category: "hero", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Hero/Blood Rage CuChulainn.png" },
-	  { name: "CuChulainn", type: "celt", category: "hero", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Hero/CuChulainn.png" },
-	  { name: "Lugh of the Long Arm", type: "celt", category: "hero", subtype: "fae", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Hero/Lugh of the Long Arm.png" },
-	  { name: "Danu, Mother of Fae", type: "celt", category: "hero", subtype: "fae", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Hero/Danu, Mother of Fae.png" },
-	  { name: "Ancient Notes", type: "", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Assist/Ancient Notes.png" },
-	  { name: "Second Chance", type: "", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Assist/Second Chance.png" },
-	  { name: "Painful Price", type: "", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Assist/Painful Price.png" },
-	  { name: "Legends Retold", type: "", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Assist/Legends Retold.png" },
-	  { name: "Hero Calling", type: "", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Assist/Hero Calling.png" },
-	  { name: "Potion of Memories", type: "item", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Assist/Potion of Memories.png" },
-	  { name: "Argonaut Castor", type: "greek", category: "unit", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Argonaut Castor.png" },
-	  { name: "Argonaut Herakles", type: "greek", category: "unit", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Argonaut Herakles.png" },
-	  { name: "Argonaut Jason", type: "greek", category: "unit", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Argonaut Jason.png" },
-	  { name: "Argonaut Polydeuces", type: "greek", category: "unit", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Argonaut Polydeuces.png" },
-	  { name: "Argonaut Orpheus", type: "greek", category: "unit", subtype: "scholar", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Argonaut Orpheus.png" },
-	  { name: "Asclepius", type: "greek", category: "unit", subtype: "scholar", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Asclepius.png" },
-	  { name: "Daedalus", type: "greek", category: "unit", subtype: "scholar", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Daedalus.png" },
-	  { name: "Moira Clotho", type: "greek", category: "unit", subtype: "scholar", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Moira Clotho.png" },
-	  { name: "Nymph Eurydice", type: "greek", category: "unit", subtype: "scholar", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Nymph Eurydice.png" },
-	  { name: "The Oracle of Delphi", type: "greek", category: "unit", subtype: "scholar", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/The Oracle of Delphi.png" },
-	  { name: "Campe", type: "greek", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Campe.png" },
-	  { name: "Cerberus", type: "greek", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Cerberus.png" },
-	  { name: "Cyclops", type: "greek", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Cyclops.png" },
-	  { name: "Hydra", type: "greek", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Hydra.png" },
-	  { name: "Siren", type: "greek", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Siren.png" },
-	  { name: "Charon's Ferry", type: "greek", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Charons Ferry.png" },
-	  { name: "Hermes' Sandals", type: "greek", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Hermes Sandals.png" },
-	  { name: "Zeus' Lightning Bolt", type: "greek", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Zeus Lightning Bolt.png" },
-	  { name: "Hydra's Poison", type: "greek", category: "assist", subtype: "item", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Hydras Poison.png" },
-	  { name: "Poseidon's Trident", type: "greek", category: "assist", subtype: "item", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Poseidons Trident.png" },
-	  { name: "Elysium", type: "greek", category: "field", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Elysium.png" },
-	  { name: "Underworld", type: "greek", category: "field", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Underworld.png" },
-	  { name: "Chulainn", type: "celt", category: "unit", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Chulainn.png" },
-	  { name: "Finegas", type: "celt", category: "unit", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Finegas.png" },
-	  { name: "Fintan", type: "celt", category: "unit", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Fintan.png" },
-	  { name: "Fionn", type: "celt", category: "unit", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Fionn.png" },
-	  { name: "Macha", type: "celt", category: "unit", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Macha.png" },
-	  { name: "Scathach", type: "celt", category: "unit", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Scathach.png" },
-	  { name: "Setante", type: "celt", category: "unit", subtype: "warrior", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Setante.png" },
-	  { name: "Corra", type: "celt", category: "unit", subtype: "fae", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Corra.png" },
-	  { name: "Far Darrig", type: "celt", category: "unit", subtype: "fae", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Far Darrig.png" },
-	  { name: "Gancanagh", type: "celt", category: "unit", subtype: "fae", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Gancanagh.png" },
-	  { name: "Luhg", type: "celt", category: "unit", subtype: "fae", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Luhg.png" },
-	  { name: "Pooka (Dog Form)", type: "celt", category: "unit", subtype: "fae", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Pooka (Dog Form).png" },
-	  { name: "Pooka (Human Form)", type: "celt", category: "unit", subtype: "fae", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Pooka (Human Form).png" },
-	  { name: "Pooka (True Form)", type: "celt", category: "unit", subtype: "fae", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Pooka (True Form).png" },
-	  { name: "Salmon of Wisdom", type: "celt", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Salmon of Wisdom.png" },
-	  { name: "Blessings of the Dahnnan", type: "celt", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Blessings of the Dahnnan.png" },
-	  { name: "Druid's Foresight", type: "celt", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Druids Foresight.png" },
-	  { name: "Fuamnach's Scheme", type: "celt", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Fuamnach's Scheme.png" },
-	  { name: "Gae Bulg", type: "celt", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Gae Bulg.png" },
-	  { name: "Hound of Chulainn", type: "celt", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Hound of Chulainn.png" },
-	  { name: "Pooka Mischief", type: "celt", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Pooka Mischief.png" },
-	  { name: "Shape Change", type: "celt", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Shape Change.png" },
-	  { name: "Tir na Nog", type: "celt", category: "field", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Tir na Nog.png" },
-	  { name: "Yokai Parade", type: "yamato", category: "field", subtype: "yokai", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Yokai Parade.png" },
-	  { name: "100-Year-Old Spirit", type: "yamato", category: "assist", subtype: "yokai", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/100-Year-Old Spirit.png" },
-	  { name: "Faithful Spirit", type: "yamato", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Faithful Spirit.png" },
-	  { name: "Taizen Fukansai", type: "yamato", category: "assist", subtype: "yokai", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Taizen Fukansai.png" },
-	  { name: "Tengu Shogi Game", type: "yamato", category: "assist", subtype: "yokai", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Tengu Shogi Game.png" },
-	  { name: "Shikigami Parade", type: "yamato", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Shikigami Parade.png" },
-	  { name: "Restful Tengu", type: "yamato", category: "unit", subtype: "yokai", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Restful Tengu.png" },
-	  { name: "Neglected Items", type: "yamato", category: "assist", subtype: "yokai", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Neglected Items.png" },
-	  { name: "Onibi", type: "yamato", category: "unit", subtype: "yokai", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Onibi.png" },
-	  { name: "Boroboroton", type: "yamato", category: "unit", subtype: "yokai", trait: "item", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Boroboroton.png" },
-	  { name: "Ashiya Doman", type: "yamato", category: "unit", subtype: "onmyoji", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Ashiya Doman.png" },
-	  { name: "Minamoto No Yorimitsu", type: "yamato", category: "unit", subtype: "onmyoji", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Minamoto No Yorimitsu.png" },
-	  { name: "Kuda-Ya", type: "yamato", category: "unit", subtype: "onmyoji", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Kuda-Ya.png" },
-	  { name: "ChoChin Obake", type: "yamato", category: "unit", subtype: "yokai", trait: "item", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/ChoChin Obake.png" },
-	  { name: "Ittan Momen", type: "yamato", category: "unit", subtype: "yokai", trait: "item", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Ittan Momen.png" },
-	  { name: "Kasa Obake", type: "yamato", category: "unit", subtype: "yokai", trait: "item", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Kasa Obake.png" },
-	  { name: "Mokumokuren", type: "yamato", category: "unit", subtype: "yokai", trait: "item", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Mokumokuren.png" },
-	  { name: "Yamaoroshi", type: "yamato", category: "unit", subtype: "yokai", trait: "item", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Yamaoroshi.png" },
-	  { name: "Inugami", type: "yamato", category: "unit", subtype: "yokai", trait: "shikigami", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Inugami.png" },
-	  { name: "Kudagitsune", type: "yamato", category: "unit", subtype: "yokai", trait: "shikigami", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Kudagitsune.png" },
-	  { name: "Paper Shikigami", type: "yamato", category: "unit", subtype: "yokai", trait: "shikigami", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Paper Shikigami.png" },
-    ];
-
     // Current filters (now an array)
     let activeFilters = new Set(['all']);
 
     // Initialize cards
     function initCards() {
+      buildFilterUI();
       renderCards();
       setupFilters();
+    }
+
+    // Build filter UI dynamically from filterConfig
+    function buildFilterUI() {
+      const container = document.getElementById('dynamicFilters');
+      
+      // Set
+      if (filterConfig.sets && filterConfig.sets.length > 0) {
+        const setGroup = document.createElement('div');
+        setGroup.className = 'filter-group';
+        setGroup.innerHTML = '<span class="filter-group-label">Set:</span>';
+        const buttonsDiv = document.createElement('div');
+        buttonsDiv.className = 'filter-buttons';
+        filterConfig.sets.forEach(set => {
+          buttonsDiv.innerHTML += `<button class="filter-btn" data-filter="${set.value}">${set.label}</button>`;
+        });
+        setGroup.appendChild(buttonsDiv);
+        container.appendChild(setGroup);
+      }
+
+      // Card Type
+      if (filterConfig.cardTypes && filterConfig.cardTypes.length > 0) {
+        const typeGroup = document.createElement('div');
+        typeGroup.className = 'filter-group';
+        typeGroup.innerHTML = '<span class="filter-group-label">Card Type:</span>';
+        const buttonsDiv = document.createElement('div');
+        buttonsDiv.className = 'filter-buttons';
+        filterConfig.cardTypes.forEach(type => {
+          buttonsDiv.innerHTML += `<button class="filter-btn" data-filter="${type.value}">${type.label}</button>`;
+        });
+        typeGroup.appendChild(buttonsDiv);
+        container.appendChild(typeGroup);
+      }
+
+      // Faction
+      if (filterConfig.factions && filterConfig.factions.length > 0) {
+        const factionGroup = document.createElement('div');
+        factionGroup.className = 'filter-group';
+        factionGroup.innerHTML = '<span class="filter-group-label">Faction:</span>';
+        const buttonsDiv = document.createElement('div');
+        buttonsDiv.className = 'filter-buttons';
+        filterConfig.factions.forEach(faction => {
+          buttonsDiv.innerHTML += `<button class="filter-btn" data-filter="${faction.value}">${faction.label}</button>`;
+        });
+        factionGroup.appendChild(buttonsDiv);
+        container.appendChild(factionGroup);
+      }
+
+      // Subtype
+      if (filterConfig.subtypes && filterConfig.subtypes.length > 0) {
+        const subtypeGroup = document.createElement('div');
+        subtypeGroup.className = 'filter-group';
+        subtypeGroup.innerHTML = '<span class="filter-group-label">Subtype:</span>';
+        const buttonsDiv = document.createElement('div');
+        buttonsDiv.className = 'filter-buttons';
+        filterConfig.subtypes.forEach(subtype => {
+          buttonsDiv.innerHTML += `<button class="filter-btn" data-filter="${subtype.value}">${subtype.label}</button>`;
+        });
+        subtypeGroup.appendChild(buttonsDiv);
+        container.appendChild(subtypeGroup);
+      }
     }
 
     // Render cards based on current filters
@@ -659,7 +567,6 @@
       } else {
         // Filter cards that match ALL selected filters (AND logic)
         filteredCards = cardsData.filter(card => {
-          // Check if the card matches all active filters
           return Array.from(activeFilters).every(filter => {
             return card.type === filter ||
                    card.category === filter ||
@@ -672,15 +579,13 @@
 
       // Sort cards by type (empty types go last), then by name alphabetically
       filteredCards.sort((a, b) => {
-        // First sort by type
-        const typeA = a.type || 'zzz'; // Empty types go to end
+        const typeA = a.type || 'zzz';
         const typeB = b.type || 'zzz';
         
         if (typeA !== typeB) {
           return typeA.localeCompare(typeB);
         }
         
-        // If types are the same, sort by name
         return a.name.localeCompare(b.name);
       });
 
@@ -693,7 +598,6 @@
         const cardElement = document.createElement('div');
         cardElement.className = 'card-item';
         
-        // Build the card type string dynamically
         let cardTypeText = '';
         if (card.type) cardTypeText += card.type;
         if (card.subtype) cardTypeText += (cardTypeText ? ' • ' : '') + card.subtype;
@@ -724,18 +628,15 @@
         btn.addEventListener('click', () => {
           const filterValue = btn.getAttribute('data-filter');
           
-          // Handle "All Cards" button
           if (filterValue === 'all') {
             activeFilters.clear();
             activeFilters.add('all');
             filterBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
           } else {
-            // Remove "all" if it was active
             activeFilters.delete('all');
             document.querySelector('[data-filter="all"]').classList.remove('active');
             
-            // Toggle the clicked filter
             if (activeFilters.has(filterValue)) {
               activeFilters.delete(filterValue);
               btn.classList.remove('active');
@@ -744,7 +645,6 @@
               btn.classList.add('active');
             }
             
-            // If no filters selected, revert to "all"
             if (activeFilters.size === 0) {
               activeFilters.add('all');
               document.querySelector('[data-filter="all"]').classList.add('active');
@@ -779,6 +679,6 @@
 
     // Initialize on page load
     document.addEventListener('DOMContentLoaded', initCards);
-	</script>
+  </script>
 </body>
 </html>

@@ -4,25 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   <title>How to Play | Battalla TCG</title>
-
-  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="https://battalla.com/favicon.ico">
   <link rel="shortcut icon" type="image/x-icon" href="https://battalla.com/favicon.ico">
-
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Fondamento&display=swap" rel="stylesheet" />
-
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Fondamento', cursive;
       background: #000;
@@ -31,15 +18,12 @@
       letter-spacing: 0.3px;
       -webkit-tap-highlight-color: transparent;
     }
-
-    /* Header */
     header {
       background: #c9b896;
       padding: 1rem 0;
       text-align: center;
       border-bottom: 3px solid #8b7355;
     }
-
     .logo-header {
       max-width: 300px;
       width: 80%;
@@ -47,13 +31,10 @@
       margin: 0 auto 1rem;
       cursor: pointer;
     }
-
-    /* Navigation */
     nav {
       background: #c9b896;
       padding: 0.5rem 0;
     }
-
     .nav-links {
       display: flex;
       justify-content: center;
@@ -63,7 +44,6 @@
       list-style: none;
       padding: 0 1rem;
     }
-
     .nav-links a {
       font-family: 'Fondamento', cursive;
       color: #2c2416;
@@ -76,24 +56,17 @@
       display: inline-block;
       padding: 0.3rem 0.5rem;
     }
-
-    .nav-links a:hover {
-      color: #8b6914;
-    }
-
+    .nav-links a:hover { color: #8b6914; }
     .nav-links .active {
       color: #8b6914;
       font-weight: bold;
       text-decoration: underline #8b6914 2px;
     }
-
-    /* Main Content */
     .content-section {
       background: #c9b896;
       min-height: 100vh;
       padding: 2rem;
     }
-
     .content-container {
       max-width: 1200px;
       margin: 0 auto;
@@ -102,7 +75,6 @@
       border-radius: 15px;
       padding: 3rem;
     }
-
     .page-title {
       font-family: 'Fondamento', cursive;
       font-size: clamp(2.5rem, 5vw, 4rem);
@@ -112,7 +84,6 @@
       text-transform: uppercase;
       letter-spacing: 2px;
     }
-
     .intro-text {
       font-size: 1.3rem;
       text-align: center;
@@ -120,7 +91,6 @@
       color: #2c2416;
       font-weight: 600;
     }
-
     .section-heading {
       font-family: 'Fondamento', cursive;
       font-size: clamp(1.8rem, 4vw, 2.5rem);
@@ -130,7 +100,6 @@
       border-bottom: 3px solid #8b7355;
       padding-bottom: 0.5rem;
     }
-
     .subsection-heading {
       font-family: 'Fondamento', cursive;
       font-size: clamp(1.4rem, 3vw, 1.8rem);
@@ -139,23 +108,19 @@
       margin-bottom: 0.8rem;
       font-weight: bold;
     }
-
     .content-text {
       font-size: 1.1rem;
       margin-bottom: 1.5rem;
       color: #2c2416;
     }
-
     .content-list {
       margin-left: 2rem;
       margin-bottom: 1.5rem;
     }
-
     .content-list li {
       margin-bottom: 1rem;
       font-size: 1.1rem;
     }
-
     .highlight-box {
       background: rgba(139, 105, 20, 0.1);
       border: 2px solid #8b6914;
@@ -163,12 +128,10 @@
       padding: 1.5rem;
       margin: 1.5rem 0;
     }
-
     .keyword-term {
       font-weight: bold;
       color: #8b6914;
     }
-
     .card-image-example {
       max-width: 100%;
       height: auto;
@@ -177,7 +140,6 @@
       border-radius: 10px;
       border: 3px solid #8b7355;
     }
-
     .back-link {
       display: inline-block;
       margin-top: 2rem;
@@ -191,21 +153,17 @@
       transition: all 0.3s;
       text-align: center;
     }
-
     .back-link:hover {
       background: #2c2416;
       transform: translateY(-2px);
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
-
-    /* Footer */
     footer {
       background: #c9b896;
       padding: 2rem 1rem;
       text-align: center;
       border-top: 3px solid #8b7355;
     }
-
     footer h2 {
       font-family: 'Fondamento', cursive;
       font-size: clamp(1.3rem, 4vw, 2rem);
@@ -214,7 +172,6 @@
       text-transform: uppercase;
       letter-spacing: 1px;
     }
-
     .social-icons {
       display: flex;
       justify-content: center;
@@ -222,106 +179,36 @@
       margin-top: 1rem;
       flex-wrap: wrap;
     }
-
     .social-icons a {
       color: #2c2416;
       transition: color 0.3s, transform 0.2s;
       text-decoration: none;
     }
-
     .social-icons a:hover {
       color: #8b6914;
       transform: scale(1.1);
     }
-
     .social-icons svg {
       width: clamp(32px, 5vw, 40px);
       height: clamp(32px, 5vw, 40px);
     }
-
-    /* Responsive */
     @media (max-width: 768px) {
-      .logo-header {
-        max-width: 220px;
-      }
-
-      .nav-links {
-        gap: 1.2rem;
-      }
-
-      .nav-links a {
-        font-size: 1.1rem;
-      }
-
-      .content-container {
-        padding: 2rem;
-      }
-
-      .content-list {
-        margin-left: 1rem;
-      }
+      .logo-header { max-width: 220px; }
+      .nav-links { gap: 1.2rem; }
+      .nav-links a { font-size: 1.1rem; }
+      .content-container { padding: 2rem; }
+      .content-list { margin-left: 1rem; }
     }
-
     @media (max-width: 480px) {
-      .logo-header {
-        max-width: 160px;
-      }
-
-      .nav-links {
-        gap: 0.8rem;
-      }
-
-      .nav-links a {
-        font-size: 0.85rem;
-      }
-
-      .content-container {
-        padding: 1.5rem;
-      }
-
-      .content-text,
-      .content-list li {
-        font-size: 1rem;
-      }
-    }
-
-    @media (max-width: 400px) {
-      .logo-header {
-        max-width: 150px;
-      }
-
-      .nav-links a {
-        font-size: 0.8rem;
-        padding: 0.4rem 0.3rem;
-      }
-
-      .content-container {
-        padding: 1rem;
-      }
-
-      footer {
-        padding: 1.5rem 1rem;
-      }
-
-      .social-icons {
-        gap: 1rem;
-      }
-    }
-
-    @media (max-width: 360px) {
-      .logo-header {
-        max-width: 140px;
-      }
-
-      .nav-links a {
-        font-size: 0.75rem;
-      }
+      .logo-header { max-width: 160px; }
+      .nav-links { gap: 0.8rem; }
+      .nav-links a { font-size: 0.85rem; }
+      .content-container { padding: 1.5rem; }
+      .content-text, .content-list li { font-size: 1rem; }
     }
   </style>
 </head>
-
 <body>
-  <!-- Header -->
   <header>
     <img src="./images/dc117f_a88498c6731148b3bfe48d80f65957bd_mv2.avif" alt="Battalla!" class="logo-header" onclick="window.location.href='index.html'" />
     <nav>
@@ -329,6 +216,7 @@
         <li><a href="index.html">HOME</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="cards.html">Cards</a></li>
+        <li><a href="deck-builder.html">Deck Builder</a></li>
         <li><a href="how-to-play.html" class="active">How to Play</a></li>
         <li><a href="rulings.html">Rulings</a></li>
         <li><a href="index.html#sale">On Sale Now!</a></li>
@@ -336,13 +224,13 @@
     </nav>
   </header>
 
-  <!-- Main Content -->
   <section class="content-section">
     <div class="content-container">
       <h1 class="page-title">How To Play</h1>
       
       <p class="intro-text">Battalla is a game about strategy. Win by moving your units into your opponents rows and attacking directly. This journey won't be easy though!</p>
-		<img src="./images/dc117f_2d0ca85fcbcd4d72af8b68ef38740631_mv2.avif" alt="Play Mat" class="card-image-example" />
+      <img src="./images/dc117f_2d0ca85fcbcd4d72af8b68ef38740631_mv2.avif" alt="Play Mat" class="card-image-example" />
+      
       <div class="highlight-box">
         <h2 class="subsection-heading">Turn Actions</h2>
         <ul class="content-list">
@@ -353,75 +241,49 @@
       </div>
 
       <h2 class="section-heading">Game Setup</h2>
-      
       <p class="content-text">Each player should have a Main Deck of 40-60 cards, with no more than 3 copies of any single card.</p>
-      
       <p class="content-text">Each player should have a Hero Deck (HD) with up to 5 cards, there can only be 1 copy of each card in the HD</p>
-      
       <p class="content-text">To start the game, both players roll a die; the player who rolls the highest number may choose to go first or second. The player going first will not draw on their first turn.</p>
-      
       <p class="content-text">Both players will draw 5 cards to their hand. Each player may choose any number of these cards to shuffle back into the deck, and then draw the same number of cards shuffled.</p>
-      
       <p class="content-text">Both players will set the top 5 cards of their deck into their penalty pile. (Speed formats will use 3 cards instead of 5)</p>
-      
       <p class="content-text">When both players are ready, the game can begin!</p>
 
       <h2 class="section-heading">Taking Your Turn</h2>
-
       <h3 class="subsection-heading">Draw Phase:</h3>
       <p class="content-text">To start your turn draw the top card from your Main Deck. (If it is the first turn of the game, you will skip this step).</p>
-
       <h3 class="subsection-heading">Stamina Phase:</h3>
       <p class="content-text">Set your stamina count to 5, then calculate any effects that change the amount of stamina you have on your turn, such as Athena's HA.</p>
       <p class="content-text">After calculating stamina, activate any effects that happen at the start of your turn. This includes effects such as Hydra's Poison.</p>
-
       <h3 class="subsection-heading">Turn Phase</h3>
       <p class="content-text">During this phase, you may play cards, move, attack, or summon heroes. When you have run out of things you want to do, declare "Pass turn" to end your turn.</p>
-
       <h3 class="subsection-heading">End Phase</h3>
       <p class="content-text">Activate any effects that happen at the end of your turn. This includes effects such as Apep- The Demon of Chaos.</p>
 
       <h2 class="section-heading">Playing Cards</h2>
-      
       <p class="content-text">When playing cards, start by paying their stamina cost, located in the top right corner of the card.</p>
-      
       <p class="content-text">Cards also have one of the following three card types:</p>
-      
       <ul class="content-list">
         <li><strong>Units:</strong> Cards that can be played on the field.</li>
         <li><strong>Assists:</strong> Cards that are played only for their effect. They are discarded after activation</li>
         <li><strong>Field:</strong> Cards that go in the "Field card" zone, these cards affect everyone on the field. If another field card is played, destroy the current field card.</li>
         <li><strong>Hero:</strong> These cards go in the Hero Deck and each one has its own special summoning conditions listed on the card.</li>
       </ul>
-
       <img src="./images/Battala Card callouts.png" alt="Card Callouts" class="card-image-example" />
-
       <p class="content-text">When a unit is played on the field, it cannot attack the turn it is summoned. Units cannot be played in a lane that already has a unit you control, this is referred to as "lane restrictions." For example, if I have a "Corra" unit in the neutral zone, I cannot summon a new unit to the same lane that Corra is in.</p>
-
       <p class="content-text">Units cannot attack the turn they are summoned, but they can move.</p>
-
       <p class="content-text">Assists cards do not take up space on the field. After their effect is resolved, they go to the discard.</p>
-
       <p class="content-text">Hero cards are not played using stamina but still follow the same lane restrictions as units.</p>
-
       <p class="content-text">You may continue to play cards as long as you have the resources to do so.</p>
 
       <h2 class="section-heading">Moving</h2>
-      
       <p class="content-text">Movement is the most important mechanic for Battalla. Each unit and hero card you control can move once per turn. Cards that are in their owner's summoning row are allowed to move sideways. Once cards move out of the summoning row, they can only move forward unless they have a card effect that says otherwise.</p>
-
       <p class="content-text">While cards cannot be summoned to the same lane as a card you control, they can move into a lane occupied by another card you control, as long as they can move sideways.</p>
-
       <p class="content-text">2 cards can never share the same space on the board. If an effect or mechanic forces 2 cards to share the same space, the 2nd card to enter will be destroyed.</p>
 
       <h2 class="section-heading">Combat</h2>
-      
       <p class="content-text">When two cards owned by opposing players are facing each other, the turn player can declare an attack on the opposing card. When declaring an attack, the attacking card will deal its atk value in damage to the opposing card. The defending card does not retaliate damage, and damage is persistent between turns.</p>
-
       <img src="./images/battle example.png" alt="Battle Example" class="card-image-example" />
-
       <p class="content-text">Combat is usually simple, but in some cases, card effects can make it more complicated. In order to avoid confusion, use the following steps for combat:</p>
-
       <ol class="content-list">
         <li><strong>Declaration:</strong> The turn player will declare an attack, stating the attacking card as well as what card is being attacked (the defender)</li>
         <li><strong>Effect activation:</strong> Any effects that activate either "When attacking" or "When attacked" are triggered. If multiple effects are triggered, the defender's effect will activate first (see Effect resolution below).</li>
@@ -434,49 +296,31 @@
       </ol>
 
       <h2 class="section-heading">Attacking Directly</h2>
-      
       <p class="content-text">If you control a card that is in your opponent's front row or summoning row, you can choose to have that card attack directly. Doing so will cause your opponent to draw a card from their penalty card pile. If at any point you draw the last card in your penalty card pile, you lose the game.</p>
-
       <p class="content-text">Units that attack directly are returned to the hand after attacking.</p>
-
       <p class="content-text">Heros that attack directly are returned to their owner's summoning row, in the same lane that they attacked from. If there is already a card in this spot, the Hero will be destroyed, so be careful.</p>
 
       <h2 class="section-heading">Attributes</h2>
-      
       <p class="content-text">Cards have attributes, as shown above. Attributes group cards into specific categories. Assit cards do not take up space on the field, Hero cards must start the game in the Hero deck, Field cards must be played in the field zone, and Unit cards must be played in the summoning row. Aside from these 4 main card types, "Item" is a special attribute given to any card that can be attached to another card. Assist cards can always be attached from the hand, but unit or hero cards that have the "Item" attribute must be attached by their own effect (for some cards this WILL allow attachment from the hand.) Other Attributes, such as "Fae," "Greek," or "Warrior" group cards into specific archetypes and sub-archtypes. These attributes might be important for certain card effects, so be sure to pay attention to them.</p>
 
       <h2 class="section-heading">Keywords</h2>
-      
       <p class="content-text">Keywords are effects represented by a single word. Usually, these will be in bold to help them stand out. Currently, the game has the following keywords:</p>
-
       <div class="highlight-box">
         <p class="content-text"><span class="keyword-term">1/turn:</span> This effect can only be activated once per turn, per card.</p>
-        
         <p class="content-text"><span class="keyword-term">(#):</span> The number in parenthesis is the amount of stamina you must pay to activate this effect.</p>
-        
         <p class="content-text"><span class="keyword-term">Surprise:</span> This card can attack the turn it is summoned</p>
-        
         <p class="content-text"><span class="keyword-term">Attached:</span> This effect is given to the card this item is attached to</p>
-        
         <p class="content-text"><span class="keyword-term">Intimidate:</span> When this card is attacked, the attacking unit gets -1/+0</p>
-        
         <p class="content-text"><span class="keyword-term">Revive:</span> Summon a unit from your discard. This unit gains the "Revived" attribute.</p>
-        
         <p class="content-text"><span class="keyword-term">Discard:</span> Send a card from your hand to the discard pile</p>
-        
         <p class="content-text"><span class="keyword-term">Sacrifice:</span> Send a card you control from the field to the discard pile</p>
-        
         <p class="content-text"><span class="keyword-term">Replace:</span> Send a card you control from the field to the discard, then summon this card in its place. This card gains all the same permanent counters as the replaced card. (Including damage, time on the field, and actions taken this turn.)</p>
-        
         <p class="content-text"><span class="keyword-term">Search:</span> Look for a specific card. Always shuffle your deck if it is searched.</p>
-        
         <p class="content-text"><span class="keyword-term">React:</span> This effect can be activated on your opponent's turn, in response to an action, effect, or card that they have activated.</p>
       </div>
-
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <h2>Follow Our Socials!</h2>
     <div class="social-icons">
