@@ -94,7 +94,7 @@ const cardsData = [
   { name: "Yokai Parade", type: "yamato", category: "field", subtype: "yokai", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Yokai Parade.png" },
   { name: "100-Year-Old Spirit", type: "yamato", category: "assist", subtype: "yokai", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/100-Year-Old Spirit.png" },
   { name: "Faithful Spirit", type: "yamato", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Faithful Spirit.png" },
-  { name: "Taizan Fukansai", type: "yamato", category: "assist", subtype: "yokai", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Taizan Fukansai.png" },
+  { name: "Taizan Fukansai", type: "yamato", category: "assist", subtype: "yokai", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Taizan Fukunsai.png" },
   { name: "Tengu Shogi Game", type: "yamato", category: "assist", subtype: "yokai", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Tengu Shogi Game.png" },
   { name: "Shikigami Parade", type: "yamato", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Shikigami Parade.png" },
   { name: "Restful Tengu", type: "yamato", category: "unit", subtype: "yokai", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Restful Tengu.png" },
