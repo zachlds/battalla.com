@@ -138,7 +138,7 @@ const filterConfig = {
     { label: "Shikigami", value: "shikigami" },
 	{ label: "Pooka", value: "pooka" },
 	{ label: "Spirit", value: "spirit" },
-	{ label: "Onibi", value: "Onibi" },
+	{ label: "Onibi", value: "onibi" },
 	{ label: "Argonaut", value: "argonaut" }
   ]
 };
