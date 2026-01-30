@@ -33,7 +33,6 @@ const cardsData = [
   { name: "Asclepius", type: "greek", category: "unit", subtype: "scholar", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Asclepius.png" },
   { name: "Daedalus", type: "greek", category: "unit", subtype: "scholar", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Daedalus.png" },
   { name: "Moirai Clotho", type: "greek", category: "unit", subtype: "scholar", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Moirai Clotho.png" },
-  { name: "Nymph Eurydice", type: "greek", category: "unit", subtype: "scholar", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Nymph Eurydice.png" },
   { name: "The Oracle of Delphi", type: "greek", category: "unit", subtype: "scholar", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/The Oracle of Delphi.png" },
   { name: "Campe", type: "greek", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Campe.png" },
   { name: "Cerberus", type: "greek", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Blue/Greek/Cerberus.png" },
@@ -64,7 +63,6 @@ const cardsData = [
   { name: "Great Sphinx", type: "egyptian", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Great Sphinx.png" },
   { name: "Jackal Head of the First Gate", type: "egyptian", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Jackal Head of the First Gate.png" },
   { name: "Majestic Griffin", type: "egyptian", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Majestic Griffin.png" },
-  { name: "Pharoah's Sarcophagus", type: "egyptian", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Pharoahs Sarcophagus.png" },
   { name: "Ram Head of the First Gate", type: "egyptian", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Ram Head of the First Gate.png" },
   { name: "Twin Lions Akher", type: "egyptian", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Twin Lions Akher.png" },
   { name: "Uraeus", type: "egyptian", category: "unit", subtype: "beast", trait: "", set: "set1", image: "./images/Cards/Set1/Gold/Egyptian/Uraeus.png" },
@@ -92,8 +90,6 @@ const cardsData = [
   { name: "Shape Change", type: "celt", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Shape Change.png" },
   { name: "Tir na Nog", type: "celt", category: "field", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Green/Celt/Tir na Nog.png" },
   { name: "Yokai Parade", type: "yamato", category: "field", subtype: "yokai", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Yokai Parade.png" },
-  { name: "100-Year-Old Spirit", type: "yamato", category: "assist", subtype: "yokai", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/100-Year-Old Spirit.png" },
-  { name: "Faithful Spirit", type: "yamato", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Faithful Spirit.png" },
   { name: "Taizan Fukunsai", type: "yamato", category: "assist", subtype: "yokai", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Taizan Fukunsai.png" },
   { name: "Tengu Shogi Game", type: "yamato", category: "assist", subtype: "yokai", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Tengu Shogi Game.png" },
   { name: "Shikigami Parade", type: "yamato", category: "assist", subtype: "", trait: "", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Shikigami Parade.png" },
@@ -140,6 +136,7 @@ const filterConfig = {
     { label: "Scholar", value: "scholar" },
     { label: "Onmyoji", value: "onmyoji" },
     { label: "Shikigami", value: "shikigami" }
+	{ label: "Argonaut", value: "argonaut" },
   ]
 };
 
