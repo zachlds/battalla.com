@@ -145,6 +145,18 @@ const cardsData = [
 { name: "Divine Protection", type: null, category: "assist", subtype: "item", trait: null, set: "set2", image: "./images/Cards/set2/Assist/Divine Protection.png" },
 { name: "Full Armor", type: null, category: "assist", subtype: "item", trait: null, set: "set2", image: "./images/Cards/set2/Assist/Full Armor.png" },
 { name: "Stasis", type: null, category: "assist", subtype: "item", trait: null, set: "set2", image: "./images/Cards/set2/Assist/Stasis.png" },
+{ name: "Allen", type: "celt", category: "unit", subtype: "warrior", trait: null, set: "set2", image: "./images/Cards/set2/Green/Celt/Allen.png" },
+{ name: "Aodh", type: "celt", category: "unit", subtype: "scholar", trait: null, set: "set2", image: "./images/Cards/set2/Green/Celt/Aodh.png" },
+{ name: "Arden", type: "celt", category: "unit", subtype: "warrior", trait: null, set: "set2", image: "./images/Cards/set2/Green/Celt/Arden.png" },
+{ name: "Conn", type: "celt", category: "unit", subtype: "scholar", trait: null, set: "set2", image: "./images/Cards/set2/Green/Celt/Conn.png" },
+{ name: "Fiacra", type: "celt", category: "unit", subtype: "scholar", trait: null, set: "set2", image: "./images/Cards/set2/Green/Celt/Fiacra.png" },
+{ name: "Fionnghuala", type: "celt", category: "unit", subtype: "scholar", trait: null, set: "set2", image: "./images/Cards/set2/Green/Celt/Fionnghuala.png" },
+{ name: "Magestic Swan", type: "celt", category: "unit", subtype: "beast", trait: null, set: "set2", image: "./images/Cards/set2/Green/Celt/Magestic Swan.png" },
+{ name: "Naois", type: "celt", category: "unit", subtype: "warrior", trait: null, set: "set2", image: "./images/Cards/set2/Green/Celt/Naois.png" },
+{ name: "Onchu", type: "celt", category: "unit", subtype: "beast", trait: null, set: "set2", image: "./images/Cards/set2/Green/Celt/Onchu.png" },
+{ name: "Ulster", type: "celt", category: "field", subtype: null, trait: null, set: "set2", image: "./images/Cards/set2/Green/Celt/Ulster.png" },
+{ name: "Fionn Mac Cuhmall", type: "celt", category: "hero", subtype: "warrior", trait: null, set: "set2", image: "./images/Cards/set2/Green/Hero/Fionn Mac Cuhmall.png" },
+{ name: "Lir", type: "celt", category: "hero", subtype: "fae", trait: null, set: "set2", image: "./images/Cards/set2/Green/Hero/Lir.png" },
 ];
 
 // Filter configuration - organized by category
