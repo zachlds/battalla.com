@@ -157,6 +157,10 @@ const cardsData = [
 { name: "Ulster", type: "celt", category: "field", subtype: null, trait: null, set: "set2", image: "./images/Cards/set2/Green/Celt/Ulster.png" },
 { name: "Fionn Mac Cuhmall", type: "celt", category: "hero", subtype: "warrior", trait: null, set: "set2", image: "./images/Cards/set2/Green/Hero/Fionn Mac Cuhmall.png" },
 { name: "Lir", type: "celt", category: "hero", subtype: "fae", trait: null, set: "set2", image: "./images/Cards/set2/Green/Hero/Lir.png" },
+{ name: "Druid's Wand", type: "celt", category: "assist",  subtype: null,      trait: "", set: "set2", image: "./images/Cards/set2/Green/Celt/Druid's Wand.png" },
+{ name: "Aoife",        type: "celt", category: "unit",  subtype: "scholar", trait: null,     set: "set2", image: "./images/Cards/set2/Green/Celt/Aoife.png" },
+{ name: "Deirde",       type: "celt", category: "unit",  subtype: "warrior", trait: null,     set: "set2", image: "./images/Cards/set2/Green/Celt/Deirde.png" },
+{ name: "Dobhar-Chú",   type: "celt", category: "unit",  subtype: "beast",   trait: null,     set: "set2", image: "./images/Cards/set2/Green/Celt/Dobhar-Chú.png" },
 ];
 
 // Filter configuration - organized by category
