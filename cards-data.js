@@ -142,9 +142,9 @@ const cardsData = [
 { name: "Tengu Mask", type: "yamato", category: "assist", subtype: "yokai", trait: "item", set: "set2", image: "./images/Cards/set2/Purple/Yamato/Tengu Mask.png" },
 { name: "Yellow Oni Mask", type: "yamato", category: "assist", subtype: "yokai", trait: "item", set: "set2", image: "./images/Cards/set2/Purple/Yamato/Yellow Oni Mask.png" },
 { name: "Diadarobotchi", type: "yamato", category: "hero", subtype: "yokai", trait: null, set: "set2", image: "./images/Cards/set2/Purple/Hero/Diadarobotchi.png" },
-{ name: "Divine Protection", type: null, category: "item", subtype: "assist", trait: null, set: "set2", image: "./images/Cards/set2/Assist/Divine Protection.png" },
-{ name: "Full Armor", type: null, category: "item", subtype: "assist", trait: null, set: "set2", image: "./images/Cards/set2/Assist/Full Armor.png" },
-{ name: "Stasis", type: null, category: "item", subtype: "assist", trait: null, set: "set2", image: "./images/Cards/set2/Assist/Stasis.png" },
+{ name: "Divine Protection", type: null, category: "assist", subtype: "item", trait: null, set: "set2", image: "./images/Cards/set2/Assist/Divine Protection.png" },
+{ name: "Full Armor", type: null, category: "assist", subtype: "item", trait: null, set: "set2", image: "./images/Cards/set2/Assist/Full Armor.png" },
+{ name: "Stasis", type: null, category: "assist", subtype: "item", trait: null, set: "set2", image: "./images/Cards/set2/Assist/Stasis.png" },
 ];
 
 // Filter configuration - organized by category
