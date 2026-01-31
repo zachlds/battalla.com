@@ -108,7 +108,7 @@ const cardsData = [
   { name: "Inugami", type: "yamato", category: "unit", subtype: "yokai", trait: "shikigami", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Inugami.png" },
   { name: "Kudagitsune", type: "yamato", category: "unit", subtype: "yokai", trait: "shikigami", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Kudagitsune.png" },
   { name: "Paper Shikigami", type: "yamato", category: "unit", subtype: "yokai", trait: "shikigami", set: "set1", image: "./images/Cards/Set1/Purple/Yamato/Paper Shikigami.png" },
-  { name: "Ariadne’s Thread", type: "greek", category: "item", subtype: "assist", trait: null, set: "set2", image: "./images/Cards/set2/Blue/Greek/Ariadne’s Thread.png" },
+  { name: "Ariadne’s Thread", type: "greek", category: "item", subtype: "assist", trait: null, set: "set2", image: "./images/Cards/set2/Blue/Greek/Ariadnes Thread.png" },
 { name: "Augean Stables", type: "greek", category: "field", subtype: null, trait: null, set: "set2", image: "./images/Cards/set2/Blue/Greek/Augean Stables.png" },
 { name: "Ceryneian Hind", type: "greek", category: "item", subtype: "assist", trait: null, set: "set2", image: "./images/Cards/set2/Blue/Greek/Ceryneian Hind.png" },
 { name: "Cursed by the Gods", type: "greek", category: "item", subtype: "assist", trait: null, set: "set2", image: "./images/Cards/set2/Blue/Greek/Cursed by the Gods.png" },
