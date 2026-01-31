@@ -126,6 +126,22 @@ const cardsData = [
 { name: "Theseus", type: "greek", category: "unit", subtype: "warrior", trait: null, set: "set2", image: "./images/Cards/set2/Blue/Greek/Theseus.png" },
 { name: "Persephone", type: "greek", category: "hero", subtype: "scholar", trait: null, set: "set2", image: "./images/Cards/set2/Blue/Hero/Persephone.png" },
 { name: "Scylla", type: "greek", category: "hero", subtype: "beast", trait: null, set: "set2", image: "./images/Cards/set2/Blue/Hero/Scylla.png" },
+{ name: "Bakezori", type: "yamato", category: "unit", subtype: "yokai", trait: null, set: "set2", image: "./images/Cards/set2/Purple/Yamato/Bakezori.png" },
+{ name: "Blue Oni", type: "yamato", category: "unit", subtype: "yokai", trait: null, set: "set2", image: "./images/Cards/set2/Purple/Yamato/Blue Oni.png" },
+{ name: "Green Oni", type: "yamato", category: "unit", subtype: "yokai", trait: null, set: "set2", image: "./images/Cards/set2/Purple/Yamato/Green Oni.png" },
+{ name: "Hidden by Tengu", type: "yamato", category: "assist", subtype: null, trait: null, set: "set2", image: "./images/Cards/set2/Purple/Yamato/Hidden by Tengu.png" },
+{ name: "Kameosa", type: "yamato", category: "unit", subtype: "yokai", trait: "item", set: "set2", image: "./images/Cards/set2/Purple/Yamato/Kameosa.png" },
+{ name: "Kitsu Onibi", type: "yamato", category: "unit", subtype: "spirit", trait: null, set: "set2", image: "./images/Cards/set2/Purple/Yamato/Kitsu Onibi.png" },
+{ name: "Kosenjobi", type: "yamato", category: "assist", subtype: null, trait: null, set: "set2", image: "./images/Cards/set2/Purple/Yamato/Kosenjobi.png" },
+{ name: "Mino Onibi", type: "yamato", category: "unit", subtype: "spirit", trait: null, set: "set2", image: "./images/Cards/set2/Purple/Yamato/Mino Onibi.png" },
+{ name: "Namahage Blue", type: "yamato", category: "assist", subtype: "yokai", trait: null, set: "set2", image: "./images/Cards/set2/Purple/Yamato/Namahage Blue.png" },
+{ name: "Namahage Green", type: "yamato", category: "item", subtype: "yokai", trait: "assist", set: "set2", image: "./images/Cards/set2/Purple/Yamato/Namahage Green.png" },
+{ name: "Namahage Red", type: "yamato", category: "assist", subtype: "yokai", trait: null, set: "set2", image: "./images/Cards/set2/Purple/Yamato/Namahage Red.png" },
+{ name: "Nojuku Onibi", type: "yamato", category: "unit", subtype: "spirit", trait: null, set: "set2", image: "./images/Cards/set2/Purple/Yamato/Nojuku Onibi.png" },
+{ name: "Red Oni", type: "yamato", category: "unit", subtype: "yokai", trait: null, set: "set2", image: "./images/Cards/set2/Purple/Yamato/Red Oni.png" },
+{ name: "Tengu Mask", type: "yamato", category: "item", subtype: "yokai", trait: "assist", set: "set2", image: "./images/Cards/set2/Purple/Yamato/Tengu Mask.png" },
+{ name: "Yellow Oni Mask", type: "yamato", category: "item", subtype: "yokai", trait: "assist", set: "set2", image: "./images/Cards/set2/Purple/Yamato/Yellow Oni Mask.png" },
+{ name: "Diadarobotchi", type: "yamato", category: "hero", subtype: "yokai", trait: null, set: "set2", image: "./images/Cards/set2/Purple/Hero/Diadarobotchi.png" },
 ];
 
 // Filter configuration - organized by category
