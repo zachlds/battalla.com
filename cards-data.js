@@ -125,13 +125,14 @@ const cardsData = [
 { name: "Sword of Damocles", type: "greek", category: "item", subtype: "assist", trait: null, set: "set2", image: "./images/Cards/set2/Greek/Item/Sword of Damocles.png" },
 { name: "Theseus", type: "greek", category: "unit", subtype: "warrior", trait: null, set: "set2", image: "./images/Cards/set2/Greek/Unit/Theseus.png" }
 { name: "Persephone", type: "greek", category: "hero", subtype: "scholar", trait: null, set: "set2", image: "./images/Cards/set2/Greek/Hero/Persephone.png" },
-{ name: "Scylla", type: "greek", category: "hero", subtype: "beast", trait: null, set: "set2", image: "./images/Cards/set2/Greek/Hero/Scylla.png" }
+{ name: "Scylla", type: "greek", category: "hero", subtype: "beast", trait: null, set: "set2", image: "./images/Cards/set2/Greek/Hero/Scylla.png" },
 ];
 
 // Filter configuration - organized by category
 const filterConfig = {
   sets: [
     { label: "Set 1", value: "set1" }
+	{ label: "Set 2", value: "set2" }
   ],
   cardTypes: [
     { label: "Hero", value: "hero" },
