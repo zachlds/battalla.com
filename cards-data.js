@@ -161,6 +161,18 @@ const cardsData = [
 { name: "Aoife",        type: "celt", category: "unit",  subtype: "scholar", trait: null,     set: "set2", image: "./images/Cards/set2/Green/Celt/Aoife.png" },
 { name: "Deirde",       type: "celt", category: "unit",  subtype: "warrior", trait: null,     set: "set2", image: "./images/Cards/set2/Green/Celt/Deirde.png" },
 { name: "Dobhar-Chú",   type: "celt", category: "unit",  subtype: "beast",   trait: null,     set: "set2", image: "./images/Cards/set2/Green/Celt/Dobhar-Chu.png" },
+{ name: "Djoser",            type: "egyptian", category: "unit", subtype: "warrior", trait: null,     set: "set2", image: "./images/Cards/set2/Gold/Egyptian/Djoser.png" },
+{ name: "Merasamum",         type: "egyptian", category: "unit", subtype: "scholar", trait: null,     set: "set2", image: "./images/Cards/set2/Gold/Egyptian/Merasamum.png" },
+{ name: "Nakhtmin",          type: "egyptian", category: "unit", subtype: "warrior", trait: "", set: "set2", image: "./images/Cards/set2/Gold/Egyptian/Nakhtmin.png" },
+{ name: "Priest of Sekhmet", type: "egyptian", category: "unit", subtype: "scholar", trait: null,     set: "set2", image: "./images/Cards/set2/Gold/Egyptian/Priest of Sekhmet.png" },
+{ name: "Scarab Swarm",      type: "egyptian", category: "unit", subtype: "beast",   trait: "", set: "set2", image: "./images/Cards/set2/Gold/Egyptian/Scarab Swarm.png" },
+{ name: "Warrior of Sekhmet",type: "egyptian", category: "unit", subtype: "warrior", trait: null,     set: "set2", image: "./images/Cards/set2/Gold/Egyptian/Warrior of Sekhmet.png" },
+{ name: "Zealot of Sekhmet", type: "egyptian", category: "unit", subtype: "warrior", trait: null,     set: "set2", image: "./images/Cards/set2/Gold/Egyptian/Zealot of Sekhmet.png" },
+{ name: "Sekhmet's Bloodlust", type: "egyptian", category: "item", subtype: null, trait: "assist", set: "set2", image: "./images/Cards/set2/Gold/Egyptian/Sekhmet's Bloodlust.png" },
+{ name: "Sekhmet's Grace",     type: "egyptian", category: "item", subtype: null, trait: "assist", set: "set2", image: "./images/Cards/set2/Gold/Egyptian/Sekhmet's Grace.png" },
+{ name: "Sekhmet's Rage",      type: "egyptian", category: "item", subtype: null, trait: "assist", set: "set2", image: "./images/Cards/set2/Gold/Egyptian/Sekhmet's Rage.png" },
+{ name: "Sekhmet's Roar",      type: "egyptian", category: "assist", subtype: null, trait: null,     set: "set2", image: "./images/Cards/set2/Gold/Egyptian/Sekhmet's Roar.png" },
+{ name: "Sekhmet",             type: "egyptian", category: "hero", subtype: "warrior", trait: "", set: "set2", image: "./images/Cards/set2/Gold/Hero/Sekhmet.png" },
 ];
 
 // Filter configuration - organized by category
