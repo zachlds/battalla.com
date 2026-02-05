@@ -228,96 +228,181 @@
     <div class="content-container">
       <h1 class="page-title">How To Play</h1>
       
-      <p class="intro-text">Battalla is a game about strategy. Win by moving your units into your opponents rows and attacking directly. This journey won't be easy though!</p>
-      <img src="./images/dc117f_2d0ca85fcbcd4d72af8b68ef38740631_mv2.avif" alt="Play Mat" class="card-image-example" />
+      <p class="intro-text">Battalla is a tactical TCG where you play as the commander of an army of characters from various Mythologies. Your goal is to invade your opponent's side of the field and attack their life cards.</p>
+      <img src="./images/Play_Mat.png" alt="Play Mat" class="card-image-example" />
+
+      <h2 class="section-heading">Getting Started</h2>
+      <p class="content-text">Both players will start with a <strong>Main Deck (MD)</strong> of 40-60 cards and a <strong>Hero Deck (HD)</strong> of 5 unique Hero cards. Players can have up to 3 copies of each card in their main deck, and can use cards from any mythos so long as they have a Hero from that mythos in their Hero Deck.</p>
+      <p class="content-text">The Main Deck should be shuffled and placed face down. The Hero Deck is <strong>not shuffled</strong> and is placed face up in whatever order you choose.</p>
+      
+      <h3 class="subsection-heading">Deciding Who Goes First</h3>
+      <p class="content-text">After both players have shuffled their Main Deck and decided on the order of their Hero Deck, they can decide who goes first (usually by rolling a die or flipping a coin).</p>
+      
+      <h3 class="subsection-heading">Opening Hand</h3>
+      <p class="content-text">Both players draw 5 cards off the top of their deck. Players have the option to take any number of cards from their opening hand and put them on the <strong>bottom</strong> of the deck, then draw the same number of cards.</p>
+      
+      <h3 class="subsection-heading">Life Zone Setup</h3>
+      <p class="content-text">Once both players have their opening hand, both players take the top 5 cards of their deck and place them face down in their <strong>"Life Zone."</strong> When a player attacks directly, the defending player will add a card from their Life Zone to their hand. <strong>A player loses the game when their Life Zone has zero cards.</strong></p>
+
+      <h2 class="section-heading">Types of Cards</h2>
+      
+      <h3 class="subsection-heading">Units</h3>
+      <img src="./images/Unit_Cards.png" alt="Unit Card Example" class="card-image-example" />
+      <p class="content-text">Units are played in the summon row and can move forward each turn. A unit cannot be played in a lane where you already control a unit (this is referred to as "Lane restrictions"). Cards can be moved into a lane behind a card you control.</p>
+      <p class="content-text"><strong>Note:</strong> Units can exist in the Hand, Main Deck, Field, or Discard.</p>
+      
+      <h3 class="subsection-heading">Assist Cards</h3>
+      <img src="./images/Assist_Cards.png" alt="Assist Card Example" class="card-image-example" />
+      <p class="content-text">Assist cards can be played from the hand during your turn. To play an assist card, pay the stamina cost of the card and show it to your opponent. Activate the effect, then place the assist in the discard once its effect is resolved.</p>
+      <p class="content-text">While the effect is resolving, the Assist is considered <strong>"Floating"</strong> and is neither considered in the hand nor in the discard (it is also not considered to be on the field).</p>
+      <p class="content-text"><strong>Item Tag:</strong> Some cards have the "Item" tag. If a card is played as an item, it loses any attributes beyond its mythos and the "item" tag. When played, Items are attached to other cards on the field, giving these cards a new effect (listed under "Attached" on the item card). Items can be attached to any card on the field, regardless of who controls them.</p>
+      <p class="content-text"><strong>Note:</strong> Assist can exist in the Hand, Main Deck, Discard, or Field when effects specify (such as attach effects allowing them to be on the field as long as they are attached to a unit or hero).</p>
+      
+      <h3 class="subsection-heading">Field Cards</h3>
+      <img src="./images/Field_Cards.png" alt="Field Card Example" class="card-image-example" />
+      <p class="content-text">Field cards are played in the "Field Zone" and affect both players. Only 1 Field can be active at a time; if a new one is played, the previous one is discarded.</p>
+      <p class="content-text"><strong>Note:</strong> Field cards can exist in the Hand, Main Deck, Discard, or Field Zone.</p>
+      
+      <h3 class="subsection-heading">Hero Cards</h3>
+      <img src="./images/Hero_Cards.png" alt="Hero Card Example" class="card-image-example" />
+      <p class="content-text">Hero Cards are powerful cards that function similarly to Units. Hero cards are placed in the HD in whatever order the player wishes at the start of a game. Heroes have 3 written abilities:</p>
+      <ul class="content-list">
+        <li><strong>Summon Condition:</strong> At the top of the effect text. This condition can be met or triggered at any time during your turn to summon the top hero of your hero deck. Activating a hero summon does not cost stamina unless the effect specifies that it does.</li>
+        <li><strong>Hero Ability (HA):</strong> Active as long as the card is on the top of the HD. Only one HA can be active at a time.</li>
+        <li><strong>Field Ability (FA):</strong> Active when they leave the HD. Unless otherwise specified, this ability is active while the Hero is on the field.</li>
+      </ul>
+      <p class="content-text"><strong>Important:</strong> Units and Heroes are different card types. Cards that target Units only CANNOT target heroes.</p>
+      <p class="content-text"><strong>Note:</strong> Heroes can exist in the Hero Deck, Field, or Discard.</p>
+
+      <div class="highlight-box">
+        <h3 class="subsection-heading">Illegal Card Placement Rule</h3>
+        <p class="content-text">In rare cases, card effects will force a card to exist in a place it cannot exist. If this happens, the card is destroyed and sent to the discard instead.</p>
+      </div>
+
+      <h2 class="section-heading">The Battlefield</h2>
+      <p class="content-text">The Battlefield consists of 5 rows and 4 lanes. The rows are:</p>
+      <ul class="content-list">
+        <li>Your Summon Row</li>
+        <li>Your Front Row</li>
+        <li>Neutral Zone</li>
+        <li>Opponent's Front Row</li>
+        <li>Opponent's Summon Row</li>
+      </ul>
+
+      <h2 class="section-heading">Movement</h2>
+      <p class="content-text">The main goal of Battalla is to move your units and heroes across the field to attack your opponent's life cards.</p>
+      <p class="content-text">Cards that are in the summon row can move sideways. Once a card moves out of the summon row, it is <strong>"Locked in"</strong> and can only move forward unless an effect says otherwise.</p>
+      <p class="content-text">Units or Heroes can move once per turn for <strong>(1) stamina</strong>.</p>
+      <p class="content-text">Cards cannot move into a space occupied by another card. If cards are forced to enter an occupied space by any mechanic or effect, the card entering an occupied space is destroyed.</p>
+
+      <h2 class="section-heading">Taking Your Turn</h2>
+      <p class="content-text">At the start of each turn, a player is granted <strong>5 points of Stamina</strong>. Stamina is the resource you will use to play cards, move cards, and attack opposing cards. Each unit or Hero can move and attack 1 time each turn, and each action costs (1) stamina. Because there might still be actions you can make without stamina, such as summoning a Hero, you must declare your turn over when you are out of actions you wish to make.</p>
+
+      <h3 class="subsection-heading">Turn Phases</h3>
+      <ul class="content-list">
+        <li><strong>Draw Phase:</strong> Draw the top card of your deck. If it is the first turn of the game, you will skip this phase.</li>
+        <li><strong>Start of Turn:</strong> Set your stamina counter to 5 and activate any "Start of turn" effects.</li>
+        <li><strong>Main Phase:</strong> During your main phase, you can make any of the following actions:
+          <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+            <li>Play Unit cards in available spaces</li>
+            <li>Play Assist cards</li>
+            <li>Play a Field card</li>
+            <li>Move Units or Heroes ((1) stamina, once per card)</li>
+            <li>Declare an attack ((1) Stamina, once per card)</li>
+            <li>Summon a Hero by meeting its summoning condition</li>
+          </ul>
+        </li>
+        <li><strong>End Phase:</strong> Once you declare your turn over, your stamina bar is set to 0, and any "End of turn" effects activate.</li>
+      </ul>
+
+      <h2 class="section-heading">Attacking</h2>
+      <p class="content-text">Each card you control can declare 1 attack each turn, for <strong>(1) stamina</strong>. Cards can attack an opponent's card that is in a space directly in front of them. If you control a card in your opponent's Front Row, that card can attack your opponent's life cards.</p>
+      
+      <h3 class="subsection-heading">Attack Restrictions</h3>
+      <ul class="content-list">
+        <li>Cards cannot attack on the first turn they are on the field, unless they have an effect that says otherwise (such as the <strong>Surprise</strong> keyword). They can move on their first turn.</li>
+        <li>Cards with an attack of 0 cannot declare an attack.</li>
+      </ul>
+
+      <h3 class="subsection-heading">Attacking an Opponent's Card</h3>
+      <p class="content-text">When you declare an attack against an opponent's card, subtract your card's attack value from the opposing card's health value. Below is a detailed breakdown of a battle:</p>
+      <ol class="content-list">
+        <li>Select an attacker and a valid target, and pay (1) stamina.</li>
+        <li>"When attacking" effects activate.</li>
+        <li>"When attacked" effects activate.</li>
+        <li>Damage is calculated.</li>
+        <li>"When damaged" effects activate.</li>
+        <li>Any card with Health less than or equal to 0 is sent to the discard.</li>
+      </ol>
+      <img src="./images/Battle_Example.png" alt="Battle Example" class="card-image-example" />
+      <p class="content-text"><strong>Example:</strong> The turn player attacks with Argonaut Castor. Since neither card has an effect that activates during a battle, Castor will deal 2 damage to Kudagitsune (typically tracked with dice). Kudagitsune is left with 1 Health. Damage persists until a card is healed or leaves the field.</p>
+
+      <h2 class="section-heading">Direct Attacks</h2>
+      <p class="content-text">If you control a card on your opponent's side of the field (either in their Front Row or Summon Row), that card can attack your opponent directly. To do so, declare a direct attack. As long as the attacking unit has an attack value of 1 or more, the opponent will draw a card from their Life Zone and add it to their hand.</p>
       
       <div class="highlight-box">
-        <h2 class="subsection-heading">Turn Actions</h2>
+        <h3 class="subsection-heading">What Happens After a Direct Attack:</h3>
         <ul class="content-list">
-          <li><strong>Play Cards</strong> - Play a card by paying the Stamina costs listed in the top right corner</li>
-          <li><strong>Activate Effects</strong> - Activate the effects of cards on the field or face up on your Hero Deck</li>
-          <li><strong>Move and Attack</strong> - Each unit or hero can move and attack once per turn for one stamina each.</li>
+          <li><strong>If you attack with a Unit:</strong> The unit will return to your hand, and all cards attached will be sent to the discard.</li>
+          <li><strong>If you attack with a Hero:</strong> The Hero will return to the summon row in the same lane. (This is a forced action, so make sure the space is open or the hero will be destroyed.) The Hero retains all boardstate counters and attached cards.</li>
         </ul>
       </div>
 
-      <h2 class="section-heading">Game Setup</h2>
-      <p class="content-text">Each player should have a Main Deck of 40-60 cards, with no more than 3 copies of any single card.</p>
-      <p class="content-text">Each player should have a Hero Deck (HD) with up to 5 cards, there can only be 1 copy of each card in the HD</p>
-      <p class="content-text">To start the game, both players roll a die; the player who rolls the highest number may choose to go first or second. The player going first will not draw on their first turn.</p>
-      <p class="content-text">Both players will draw 5 cards to their hand. Each player may choose any number of these cards to shuffle back into the deck, and then draw the same number of cards shuffled.</p>
-      <p class="content-text">Both players will set the top 5 cards of their deck into their penalty pile. (Speed formats will use 3 cards instead of 5)</p>
-      <p class="content-text">When both players are ready, the game can begin!</p>
-
-      <h2 class="section-heading">Taking Your Turn</h2>
-      <h3 class="subsection-heading">Draw Phase:</h3>
-      <p class="content-text">To start your turn draw the top card from your Main Deck. (If it is the first turn of the game, you will skip this step).</p>
-      <h3 class="subsection-heading">Stamina Phase:</h3>
-      <p class="content-text">Set your stamina count to 5, then calculate any effects that change the amount of stamina you have on your turn, such as Athena's HA.</p>
-      <p class="content-text">After calculating stamina, activate any effects that happen at the start of your turn. This includes effects such as Hydra's Poison.</p>
-      <h3 class="subsection-heading">Turn Phase</h3>
-      <p class="content-text">During this phase, you may play cards, move, attack, or summon heroes. When you have run out of things you want to do, declare "Pass turn" to end your turn.</p>
-      <h3 class="subsection-heading">End Phase</h3>
-      <p class="content-text">Activate any effects that happen at the end of your turn. This includes effects such as Apep- The Demon of Chaos.</p>
-
-      <h2 class="section-heading">Playing Cards</h2>
-      <p class="content-text">When playing cards, start by paying their stamina cost, located in the top right corner of the card.</p>
-      <p class="content-text">Cards also have one of the following three card types:</p>
-      <ul class="content-list">
-        <li><strong>Units:</strong> Cards that can be played on the field.</li>
-        <li><strong>Assists:</strong> Cards that are played only for their effect. They are discarded after activation</li>
-        <li><strong>Field:</strong> Cards that go in the "Field card" zone, these cards affect everyone on the field. If another field card is played, destroy the current field card.</li>
-        <li><strong>Hero:</strong> These cards go in the Hero Deck and each one has its own special summoning conditions listed on the card.</li>
-      </ul>
-      <img src="./images/Battala Card callouts.png" alt="Card Callouts" class="card-image-example" />
-      <p class="content-text">When a unit is played on the field, it cannot attack the turn it is summoned. Units cannot be played in a lane that already has a unit you control, this is referred to as "lane restrictions." For example, if I have a "Corra" unit in the neutral zone, I cannot summon a new unit to the same lane that Corra is in.</p>
-      <p class="content-text">Units cannot attack the turn they are summoned, but they can move.</p>
-      <p class="content-text">Assists cards do not take up space on the field. After their effect is resolved, they go to the discard.</p>
-      <p class="content-text">Hero cards are not played using stamina but still follow the same lane restrictions as units.</p>
-      <p class="content-text">You may continue to play cards as long as you have the resources to do so.</p>
-
-      <h2 class="section-heading">Moving</h2>
-      <p class="content-text">Movement is the most important mechanic for Battalla. Each unit and hero card you control can move once per turn. Cards that are in their owner's summoning row are allowed to move sideways. Once cards move out of the summoning row, they can only move forward unless they have a card effect that says otherwise.</p>
-      <p class="content-text">While cards cannot be summoned to the same lane as a card you control, they can move into a lane occupied by another card you control, as long as they can move sideways.</p>
-      <p class="content-text">2 cards can never share the same space on the board. If an effect or mechanic forces 2 cards to share the same space, the 2nd card to enter will be destroyed.</p>
-
-      <h2 class="section-heading">Combat</h2>
-      <p class="content-text">When two cards owned by opposing players are facing each other, the turn player can declare an attack on the opposing card. When declaring an attack, the attacking card will deal its atk value in damage to the opposing card. The defending card does not retaliate damage, and damage is persistent between turns.</p>
-      <img src="./images/battle example.png" alt="Battle Example" class="card-image-example" />
-      <p class="content-text">Combat is usually simple, but in some cases, card effects can make it more complicated. In order to avoid confusion, use the following steps for combat:</p>
+      <h2 class="section-heading">The Storyboard</h2>
+      <p class="content-text">When an effect is activated, it opens a <strong>Storyboard</strong>. Cards with the "React" keyword can be added to the storyboard by either player. Effects on the storyboard resolve in reverse order of how they were added.</p>
+      <p class="content-text">Sometimes, effects can be triggered when paying the cost for an effect or during resolution of the Storyboard. In this case, the new effect is added to the END of the storyboard. If two effects are added at the same time, the turn player has priority and will resolve first (added to the storyboard 2nd). If 2 effects are added at the same time by the same player, that player chooses the order to resolve these effects.</p>
+      
+      <h3 class="subsection-heading">Storyboard Example:</h3>
       <ol class="content-list">
-        <li><strong>Declaration:</strong> The turn player will declare an attack, stating the attacking card as well as what card is being attacked (the defender)</li>
-        <li><strong>Effect activation:</strong> Any effects that activate either "When attacking" or "When attacked" are triggered. If multiple effects are triggered, the defender's effect will activate first (see Effect resolution below).</li>
-        <li><strong>Response:</strong> A player may choose to use a "React" effect. This effect is added to the end of a chain.</li>
-        <li><strong>Effect resolution:</strong> Effects on a chain resolve in REVERSE order. This means that the last effect added to a chain will resolve first.</li>
-        <li><strong>Calculate damage:</strong> Calculate any buffs to the atk of the attacker and deal damage to the defender.</li>
-        <li><strong>Damage effects:</strong> Effects that activate "When damaged" or "when battling" will now activate. This will start a new chain following the same order stated above.</li>
-        <li><strong>Check card health:</strong> Subtract the damage received from the defender's current health value. If the defender's health drops to 0 or below, destroy that card. Check the health of the attacking card as well, sometimes effects can place damage on the attacker.</li>
-        <li><strong>End battle.</strong></li>
+        <li>Player 1 summons Kudagitsune and activates its effect to return Player 2's Chochin Obake to their hand.</li>
+        <li>Player 2 activates the React ability of Painful Price to negate the effect of Kudagitsune. To trigger this, they sacrifice their Chochin Obake.</li>
+        <li>Chochin Obake is sent to the discard, and its effect to summon a yokai card is added to the storyboard since the sacrifice is a cost of activating Painful Price.</li>
+        <li>The storyboard begins resolving. Since Chochin's effect was added last, it will resolve first. Player two summons Mokumokuren with Chochin's effect.</li>
+        <li>Mokumokuren's on summon effect will activate, adding itself to the END of the Storyboard. This means it will activate immediately, summoning another Mokumokuren if possible.</li>
+        <li>Painful Price's effect is resolved, negating the effect of Kudagitsune. Painful Price is placed in the discard.</li>
+        <li>Kudagitsune has no effect to activate (and no longer has a target since Chochin Obake went to the discard), and so the storyboard closes.</li>
       </ol>
 
-      <h2 class="section-heading">Attacking Directly</h2>
-      <p class="content-text">If you control a card that is in your opponent's front row or summoning row, you can choose to have that card attack directly. Doing so will cause your opponent to draw a card from their penalty card pile. If at any point you draw the last card in your penalty card pile, you lose the game.</p>
-      <p class="content-text">Units that attack directly are returned to the hand after attacking.</p>
-      <p class="content-text">Heros that attack directly are returned to their owner's summoning row, in the same lane that they attacked from. If there is already a card in this spot, the Hero will be destroyed, so be careful.</p>
+      <h2 class="section-heading">Keywords</h2>
+      <p class="content-text">Keywords are effects represented by a single word or phrase. Usually, these will be in bold to help them stand out. Currently, the game has the following keywords:</p>
+      <div class="highlight-box">
+        <p class="content-text"><span class="keyword-term">Sacrifice:</span> Send a Unit or Hero you control from the Field to the discard.</p>
+        <p class="content-text"><span class="keyword-term">Discard:</span> Send a card from your hand to the discard pile.</p>
+        <p class="content-text"><span class="keyword-term">Revive:</span> Summon a card from the discard, then give it the "Revived" attribute.</p>
+        <p class="content-text"><span class="keyword-term">(#):</span> Activating this effect costs # stamina.</p>
+        <p class="content-text"><span class="keyword-term">Attached:</span> This effect is given to a card this card is attached to.</p>
+        <p class="content-text"><span class="keyword-term">React:</span> This effect can be activated on your opponent's turn, as a response to an action they take or ability they activate.</p>
+        <p class="content-text"><span class="keyword-term">Replace:</span> Send a card to the discard and place the new card in the same space. The new card retains all boardstate counters and attachments from the replaced card. This does not count as summoning that card.</p>
+        <p class="content-text"><span class="keyword-term">Surprise:</span> This card may attack on the turn it is summoned.</p>
+      </div>
+
+      <h2 class="section-heading">Boardstate Counters</h2>
+      <p class="content-text">A boardstate counter is any counter that stays on a card while it is on the field. Boardstate counters include the following:</p>
+      <ul class="content-list">
+        <li><strong>Permanent changes to health and/or attack</strong> (such as +1/+1 or -1/-1)*</li>
+        <li><strong>Time on the field**</strong></li>
+        <li><strong>Per/turn movement</strong> (This counter resets at the end of your turn)</li>
+        <li><strong>Per/turn attack</strong> (This counter resets at the end of your turn)</li>
+      </ul>
+      
+      <div class="highlight-box">
+        <h3 class="subsection-heading">*No Negative Counters Rule</h3>
+        <p class="content-text">Any counter that would take a card's value BELOW zero has no effect and is removed from the card. This is most relevant with attack counters (-1/-0).</p>
+        
+        <h3 class="subsection-heading">**Time On The Field Rule</h3>
+        <p class="content-text">Cards cannot attack unless their time on the field counter is greater than 1 turn.</p>
+      </div>
+
+      <h2 class="section-heading">Targeting Illegal Destination Rule</h2>
+      <p class="content-text">Players cannot activate an effect that would force a card to exist in an area it cannot exist. For example, if you play Ankh to return 3 cards to the deck, you cannot target a Hero card since it cannot exist in the Main Deck.</p>
+      <p class="content-text">Some interactions might break this rule, so as a reminder, if a card ever exists in an area it is not allowed to exist, it is placed in the discard.</p>
+      <p class="content-text"><strong>Example:</strong> A unit under the effect of Potion of Immortality is treated as a hero and can be the target of Funnmach's Scheme. In this case, when the unit is returned to the Hero Deck it will lose the effect of Potion of Immortality and no longer be considered a hero. Because units cannot exist in the Hero Deck, the unit is placed in the discard.</p>
 
       <h2 class="section-heading">Attributes</h2>
-      <p class="content-text">Cards have attributes, as shown above. Attributes group cards into specific categories. Assit cards do not take up space on the field, Hero cards must start the game in the Hero deck, Field cards must be played in the field zone, and Unit cards must be played in the summoning row. Aside from these 4 main card types, "Item" is a special attribute given to any card that can be attached to another card. Assist cards can always be attached from the hand, but unit or hero cards that have the "Item" attribute must be attached by their own effect (for some cards this WILL allow attachment from the hand.) Other Attributes, such as "Fae," "Greek," or "Warrior" group cards into specific archetypes and sub-archtypes. These attributes might be important for certain card effects, so be sure to pay attention to them.</p>
+      <p class="content-text">Cards have attributes that group them into specific categories. Assist cards do not take up space on the field, Hero cards must start the game in the Hero Deck, Field cards must be played in the field zone, and Unit cards must be played in the summoning row.</p>
+      <p class="content-text">Aside from these 4 main card types, "Item" is a special attribute given to any card that can be attached to another card. Assist cards can always be attached from the hand, but unit or hero cards that have the "Item" attribute must be attached by their own effect.</p>
+      <p class="content-text">Other Attributes, such as "Fae," "Greek," or "Warrior" group cards into specific archetypes and sub-archetypes. These attributes might be important for certain card effects, so be sure to pay attention to them.</p>
 
-      <h2 class="section-heading">Keywords</h2>
-      <p class="content-text">Keywords are effects represented by a single word. Usually, these will be in bold to help them stand out. Currently, the game has the following keywords:</p>
-      <div class="highlight-box">
-        <p class="content-text"><span class="keyword-term">1/turn:</span> This effect can only be activated once per turn, per card.</p>
-        <p class="content-text"><span class="keyword-term">(#):</span> The number in parenthesis is the amount of stamina you must pay to activate this effect.</p>
-        <p class="content-text"><span class="keyword-term">Surprise:</span> This card can attack the turn it is summoned</p>
-        <p class="content-text"><span class="keyword-term">Attached:</span> This effect is given to the card this item is attached to</p>
-        <p class="content-text"><span class="keyword-term">Intimidate:</span> When this card is attacked, the attacking unit gets -1/+0</p>
-        <p class="content-text"><span class="keyword-term">Revive:</span> Summon a unit from your discard. This unit gains the "Revived" attribute.</p>
-        <p class="content-text"><span class="keyword-term">Discard:</span> Send a card from your hand to the discard pile</p>
-        <p class="content-text"><span class="keyword-term">Sacrifice:</span> Send a card you control from the field to the discard pile</p>
-        <p class="content-text"><span class="keyword-term">Replace:</span> Send a card you control from the field to the discard, then summon this card in its place. This card gains all the same permanent counters as the replaced card. (Including damage, time on the field, and actions taken this turn.)</p>
-        <p class="content-text"><span class="keyword-term">Search:</span> Look for a specific card. Always shuffle your deck if it is searched.</p>
-        <p class="content-text"><span class="keyword-term">React:</span> This effect can be activated on your opponent's turn, in response to an action, effect, or card that they have activated.</p>
-      </div>
     </div>
   </section>
 
